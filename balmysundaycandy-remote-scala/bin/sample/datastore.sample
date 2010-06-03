@@ -1,0 +1,31 @@
+// ************************************************************
+// sample calls appengine datastore from local interpreter
+// 
+// ************************************************************
+// put parent entity
+val parent = new Entity("scala")
+parent.setProperty("parent", "this is parent")
+val parentkey = datastore.put(parent);
+
+// puy child entity
+val child = new Entity("scala-child", parent.getKey)
+child.setProperty("child", "this is child")
+val childkey = datastore.put(child);
+
+// entity query
+val query = new Query("scala")
+val result = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(10))
+
+// key only entity query
+val query = new Query("scala").setKeysOnly
+val result = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(10))
+
+// kindless query
+val query = new Query
+val result = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(10))
+
+// kindless ancestor query
+val query = new Query(parentkey)
+val result = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(10))
+
+
