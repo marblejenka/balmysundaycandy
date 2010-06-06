@@ -1,5 +1,0 @@
-#!/bin/sh
-exec scala -classpath $BALMYSUNDAYCANDY_SCALA_HOME/lib/balmysundaycandy-scala.jar "$0" "$@"
-!#
-
-balmysundaycandy.scalatool.client.ProfilePublisher.publish

@@ -1,7 +1,0 @@
-package balmysundaycandy.core.delegate;
-
-import com.google.apphosting.api.ApiProxy.Delegate;
-
-public class OperationFetchDelegate implements Delegate<?>{
-
-}
