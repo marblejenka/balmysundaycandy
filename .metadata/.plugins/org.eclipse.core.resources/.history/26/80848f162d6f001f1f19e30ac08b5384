@@ -1,0 +1,9 @@
+package balmysundaycandy.core.delegate;
+
+public class CalledOperation {
+	private String serviceName;
+	private String methodName;
+
+	private byte[] requestAsByte;
+
+}

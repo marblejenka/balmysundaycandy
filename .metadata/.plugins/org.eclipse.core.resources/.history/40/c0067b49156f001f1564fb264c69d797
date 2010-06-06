@@ -1,0 +1,38 @@
+package balmysundaycandy.marble.controller.snatch;
+
+import org.slim3.controller.Controller;
+import org.slim3.controller.Navigation;
+import org.slim3.datastore.Datastore;
+
+import balmysundaycandy.marble.broker.model.Test;
+
+import com.google.appengine.api.memcache.ErrorHandler;
+import com.google.appengine.api.memcache.InvalidValueException;
+import com.google.appengine.api.memcache.MemcacheService;
+import com.google.appengine.api.memcache.MemcacheServiceException;
+import com.google.appengine.api.memcache.MemcacheServiceFactory;
+
+public class MemcacheSetErrorHandlerController extends Controller {
+
+	@Override
+	protected Navigation run() {
+		MemcacheService memcacheService = MemcacheServiceFactory.getMemcacheService();
+		
+		memcacheService.setErrorHandler(new ErrorHandler() {
+			
+			public void handleServiceError(MemcacheServiceException ex) {
+				Test test = new Test();
+				test.setName(ex.getMessage());
+				Datastore.put(test);
+			}
+			
+			public void handleDeserializationError(InvalidValueException ivx) {
+				Test test = new Test();
+				test.setName(ivx.getMessage());
+				Datastore.put(test);
+			}
+		});
+
+		return forward("/WEB-INF/jsp/snatch.jsp");
+	}
+}

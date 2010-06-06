@@ -1,0 +1,20 @@
+package balmysundaycandy.marble.controller.snatch;
+
+import org.slim3.controller.Controller;
+import org.slim3.controller.Navigation;
+import org.slim3.datastore.Datastore;
+
+import balmysundaycandy.marble.broker.model.Test;
+
+public class TaskqueueHandleController extends Controller {
+
+	@Override
+	protected Navigation run() {
+		Test test = new Test();
+		test.setName("add in taskqueue");
+		
+		Datastore.putWithoutTx(test);
+		
+		return null;
+	}
+}

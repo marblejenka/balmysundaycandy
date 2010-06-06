@@ -1,0 +1,8 @@
+.settings
+dist
+lib
+target
+.classpath
+.project/.settings
+/dist
+/lib

@@ -1,0 +1,25 @@
+// ************************************************************
+// sample calls appengine datastore from local interpreter, with slim3
+// 
+// ************************************************************
+// put parent entity
+val parent = new Entity("scala")
+parent.setProperty("parent", "this is parent")
+val parentkey = Datastore.put(parent);
+
+// puy child entity
+val child = new Entity("scala-child", parent.getKey)
+child.setProperty("child", "this is child")
+val childkey = Datastore.put(child);
+
+// entity query
+val result = Datastore.query("scala").asList
+
+// key only entity query
+val result = Datastore.query("scala").setKeysOnly.asList
+
+// kindless query
+val result = Datastore.query.asList
+
+// kindless ancestor query
+val result = Datastore.query(parentkey).asList

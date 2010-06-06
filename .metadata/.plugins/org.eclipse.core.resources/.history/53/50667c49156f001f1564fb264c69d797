@@ -1,0 +1,16 @@
+package balmysundaycandy.marble.controller;
+
+import org.slim3.controller.Controller;
+import org.slim3.controller.Navigation;
+
+import balmysundaycandy.marble.broker.LogEntryService;
+
+public class CountController extends Controller {
+
+	@Override
+	protected Navigation run() {
+		requestScope("summeries", LogEntryService.summeryAll());
+
+		return forward("WEB-INF/jsp/count.jsp");
+	}
+}

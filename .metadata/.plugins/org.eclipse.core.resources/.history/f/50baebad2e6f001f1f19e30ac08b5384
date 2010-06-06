@@ -1,0 +1,120 @@
+package balmysundaycandy.extention.datastore.impl;
+
+import static org.junit.Assert.fail;
+
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+
+import org.junit.Test;
+
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.EntityNotFoundException;
+import com.google.appengine.api.datastore.Key;
+
+public class AsyncDatastoreServiceImplTest {
+	AsyncDatastoreServiceImpl asyncDatastoreServiceImpl = new AsyncDatastoreServiceImpl();
+
+	@Test
+	public void testGetKey() throws EntityNotFoundException, InterruptedException, ExecutionException {
+		Key key = null;
+		Future<Entity> future = asyncDatastoreServiceImpl.get(key);
+		Entity entity = future.get();
+		System.out.println(entity);
+	}
+
+	@Test
+	public void testGetTransactionKey() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testPutEntity() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetIterableOfKey() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetTransactionIterableOfKey() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testAllocateIdsStringLong() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testAllocateIdsKeyStringLong() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testBeginTransaction() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testDeleteKeyArray() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testDeleteTransactionKeyArray() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testDeleteIterableOfKey() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testDeleteTransactionIterableOfKey() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetActiveTransactions() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetCurrentTransaction() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetCurrentTransactionTransaction() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testPrepareQuery() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testPrepareTransactionQuery() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testPutTransactionEntity() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testPutIterableOfEntity() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testPutTransactionIterableOfEntity() {
+		fail("Not yet implemented");
+	}
+
+}

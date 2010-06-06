@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/149/trunk/balmysundaycandy-marble-broker/src/balmysundaycandy/marble/controller/snatch
+END
+TaskqueueHandleController.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/!svn/ver/149/trunk/balmysundaycandy-marble-broker/src/balmysundaycandy/marble/controller/snatch/TaskqueueHandleController.java
+END
+TaskqueueAddWithTransactionController.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/!svn/ver/149/trunk/balmysundaycandy-marble-broker/src/balmysundaycandy/marble/controller/snatch/TaskqueueAddWithTransactionController.java
+END
+MemcachePutController.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/!svn/ver/149/trunk/balmysundaycandy-marble-broker/src/balmysundaycandy/marble/controller/snatch/MemcachePutController.java
+END
+MemcacheStatisticsController.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/!svn/ver/149/trunk/balmysundaycandy-marble-broker/src/balmysundaycandy/marble/controller/snatch/MemcacheStatisticsController.java
+END
+Slim3GrobalTransactionController.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/!svn/ver/148/trunk/balmysundaycandy-marble-broker/src/balmysundaycandy/marble/controller/snatch/Slim3GrobalTransactionController.java
+END
+Slim3DatastoreQueryAndGetAndDeleteController.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/!svn/ver/149/trunk/balmysundaycandy-marble-broker/src/balmysundaycandy/marble/controller/snatch/Slim3DatastoreQueryAndGetAndDeleteController.java
+END
+MemcacheSetErrorHandlerController.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/!svn/ver/149/trunk/balmysundaycandy-marble-broker/src/balmysundaycandy/marble/controller/snatch/MemcacheSetErrorHandlerController.java
+END
+TaskqueueAddController.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/!svn/ver/149/trunk/balmysundaycandy-marble-broker/src/balmysundaycandy/marble/controller/snatch/TaskqueueAddController.java
+END

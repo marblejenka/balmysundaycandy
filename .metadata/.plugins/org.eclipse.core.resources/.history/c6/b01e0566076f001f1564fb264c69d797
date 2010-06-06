@@ -1,0 +1,93 @@
+package balmysundaycandy.more.low.level.operations.datastore.impl;
+
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import balmysundaycandy.core.test.EnvironmentConfiguration;
+import balmysundaycandy.core.test.TestEnvironmentUtils;
+import balmysundaycandy.more.low.level.operations.datastore.DatastoreOperations;
+
+import com.google.apphosting.api.ApiProxy;
+import com.google.apphosting.api.ApiProxy.ApiConfig;
+import com.google.apphosting.api.DatastorePb.QueryExplanation;
+
+public class ExplainOperationTest {
+	private static final String kind = "sogebu";
+
+	EnvironmentConfiguration environmentConfiguration = new EnvironmentConfiguration("", false, true);
+
+	@Before
+	public void setup() {
+		TestEnvironmentUtils.setupEnvironment(environmentConfiguration);
+	}
+
+	@After
+	public void teardown() {
+		TestEnvironmentUtils.teardownEnvironment(environmentConfiguration);
+	}
+
+//	@Test(expected = UnsupportedOperationException.class)
+//	public void testCallQuery() {
+//		com.google.apphosting.api.DatastorePb.Query request = new com.google.apphosting.api.DatastorePb.Query();
+//		request.setApp(ApiProxy.getCurrentEnvironment().getAppId());
+//		request.setKind(kind);
+//
+//		// prepare
+//		DatastoreOperations.RUN_QUERY.call(request);
+//
+//		// execution
+//		QueryExplanation explanation = DatastoreOperations.EXPLAIN.call(request);
+//
+//		System.out.println(explanation);
+//
+//		System.out.println("= getNativeLimit =");
+//		System.out.println(explanation.getNativeLimit());
+//
+//		System.out.println("= getNativeOffset =");
+//		System.out.println(explanation.getNativeOffset());
+//
+//		System.out.println("= getMessageAppender =");
+//		System.out.println(explanation.getMessageAppender());
+//
+//		System.out.println("= getMutableNativeIndex =");
+//		System.out.println(explanation.getMutableNativeIndex(0));
+//
+//		System.out.println("= getNativeIndex =");
+//		System.out.println(explanation.getNativeIndex(0));
+//	}
+//
+//	@Test(expected = ExecutionException.class)
+//	public void testCallAsyncQueryApiConfig() throws InterruptedException, ExecutionException {
+//		com.google.apphosting.api.DatastorePb.Query request = new com.google.apphosting.api.DatastorePb.Query();
+//		request.setApp(ApiProxy.getCurrentEnvironment().getAppId());
+//		request.setKind(kind);
+//
+//		// prepare
+//		DatastoreOperations.RUN_QUERY.call(request);
+//
+//		// execution
+//		Future<QueryExplanation> explanation = DatastoreOperations.EXPLAIN.callAsync(request, new ApiConfig());
+//
+//		System.out.println(explanation.get());
+//
+//		System.out.println("= getNativeLimit =");
+//		System.out.println(explanation.get().getNativeLimit());
+//
+//		System.out.println("= getNativeOffset =");
+//		System.out.println(explanation.get().getNativeOffset());
+//
+//		System.out.println("= getMessageAppender =");
+//		System.out.println(explanation.get().getMessageAppender());
+//
+//		System.out.println("= getMutableNativeIndex =");
+//		System.out.println(explanation.get().getMutableNativeIndex(0));
+//
+//		System.out.println("= getNativeIndex =");
+//		System.out.println(explanation.get().getNativeIndex(0));
+//	}
+
+}

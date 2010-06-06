@@ -1,0 +1,29 @@
+package balmysundaycandy.marble.controller.snatch;
+
+import org.slim3.controller.Controller;
+import org.slim3.controller.Navigation;
+import org.slim3.datastore.Datastore;
+
+import balmysundaycandy.marble.broker.model.Test;
+
+import com.google.appengine.api.datastore.Transaction;
+import com.google.appengine.api.labs.taskqueue.Queue;
+import com.google.appengine.api.labs.taskqueue.QueueFactory;
+import com.google.appengine.api.labs.taskqueue.TaskOptions;
+
+public class TaskqueueAddWithTransactionController extends Controller {
+
+	@Override
+	protected Navigation run() {
+		Transaction transaction = Datastore.beginTransaction();
+		Test test = new Test();
+		test.setName("put before transactionl task");
+
+		Datastore.put(transaction, test);
+
+		Queue queue = QueueFactory.getDefaultQueue();
+		queue.add(transaction, TaskOptions.Builder.url("/snatch/TaskqueueHandle").countdownMillis(1000));
+
+		return forward("/WEB-INF/jsp/snatch.jsp");
+	}
+}

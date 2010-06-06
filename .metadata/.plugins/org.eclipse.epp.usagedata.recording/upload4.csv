@@ -1,0 +1,326 @@
+what,kind,bundleId,bundleVersion,description,time
+opened,editor,org.eclipse.ui.editors,3.5.0.v20090527-2000,"org.eclipse.ui.DefaultTextEditor",1271861513875
+activated,editor,org.eclipse.ui.editors,3.5.0.v20090527-2000,"org.eclipse.ui.DefaultTextEditor",1271861513886
+activated,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.PropertiesFileEditor",1271861516573
+closed,editor,org.eclipse.ui.editors,3.5.0.v20090527-2000,"org.eclipse.ui.DefaultTextEditor",1271861516573
+activated,editor,org.eclipse.ant.ui,3.4.2.v20091204_r352,"org.eclipse.ant.ui.internal.editor.AntEditor",1271861517789
+closed,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.PropertiesFileEditor",1271861517790
+activated,view,org.eclipse.team.ui,3.5.0.I20090430-0408,"org.eclipse.team.ui.GenericHistoryView",1271861526341
+executed,command,org.eclipse.team.svn.ui,0.7.8.I20091023-1300,"org.eclipse.team.svn.ui.command.ShowResourceHistoryCommand",1271861526350
+opened,editor,org.eclipse.ant.ui,3.4.2.v20091204_r352,"org.eclipse.ant.ui.internal.editor.AntEditor",1271861535079
+activated,editor,org.eclipse.ant.ui,3.4.2.v20091204_r352,"org.eclipse.ant.ui.internal.editor.AntEditor",1271861535098
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.copy",1271861540897
+activated,editor,org.eclipse.ant.ui,3.4.2.v20091204_r352,"org.eclipse.ant.ui.internal.editor.AntEditor",1271861542647
+closed,editor,org.eclipse.ant.ui,3.4.2.v20091204_r352,"org.eclipse.ant.ui.internal.editor.AntEditor",1271861542647
+activated,view,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.PackageExplorer",1271861544906
+opened,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.PropertiesFileEditor",1271861545183
+activated,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.PropertiesFileEditor",1271861545203
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.paste",1271861546081
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.file.save",1271861547280
+closed,editor,org.eclipse.ant.ui,3.4.2.v20091204_r352,"org.eclipse.ant.ui.internal.editor.AntEditor",1271861548988
+activated,editor,org.eclipse.ant.ui,3.4.2.v20091204_r352,"org.eclipse.ant.ui.internal.editor.AntEditor",1271861549947
+activated,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.PropertiesFileEditor",1271861550899
+closed,editor,org.eclipse.ant.ui,3.4.2.v20091204_r352,"org.eclipse.ant.ui.internal.editor.AntEditor",1271861550900
+activated,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1271861551597
+closed,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.PropertiesFileEditor",1271861551597
+error,log,,,"Unexpected Exception",1271861552394
+activated,view,org.eclipse.ant.ui,3.4.2.v20091204_r352,"org.eclipse.ant.ui.views.AntView",1271861552997
+error,log,,,"Unexpected Exception",1271861554425
+activated,view,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console.ConsoleView",1271861555056
+activated,view,net.sf.wickedshell.ui,,"net.sf.wickedshell.ui.shell.ShellView",1271861563904
+error,log,,,"Unhandled event loop exception",1271861582871
+error,log,,,"Unhandled event loop exception",1271861583089
+error,log,,,"Unhandled event loop exception",1271861583133
+error,log,,,"Unhandled event loop exception",1271861583405
+activated,view,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console.ConsoleView",1271861585346
+closed,view,net.sf.wickedshell.ui,,"net.sf.wickedshell.ui.shell.ShellView",1271861585351
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271861587048
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271861627948
+activated,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1271861628110
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.copy",1271861629149
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271861629605
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271861631441
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.copy",1271861634038
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271861634376
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271861645884
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271861686933
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271861868328
+error,log,,,"Unexpected Exception",1271861906048
+error,log,,,"Unexpected Exception",1271861907561
+error,log,,,"Unexpected Exception",1271861911577
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271861912038
+error,log,,,"Unexpected Exception",1271861917676
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271861917717
+error,log,,,"Unexpected Exception",1271861919098
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271861919153
+error,log,,,"Unexpected Exception",1271861922156
+error,log,,,"Unexpected Exception",1271861923111
+error,log,,,"Unexpected Exception",1271861924130
+error,log,,,"Unexpected Exception",1271861926174
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271861926255
+error,log,,,"Unexpected Exception",1271861927323
+error,log,,,"Unexpected Exception",1271861928165
+error,log,,,"Unexpected Exception",1271861929179
+error,log,,,"Unexpected Exception",1271861931525
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271861931584
+error,log,,,"Unexpected Exception",1271861932190
+error,log,,,"Unexpected Exception",1271861933037
+error,log,,,"Unexpected Exception",1271861933714
+error,log,,,"Unexpected Exception",1271861934733
+error,log,,,"Unexpected Exception",1271861939140
+error,log,,,"Unexpected Exception",1271861940616
+error,log,,,"Unexpected Exception",1271861941247
+error,log,,,"Unexpected Exception",1271861945265
+started,bundle,org.eclipse.mylyn.java.tasks,3.3.2.v20100222-0100-e3x,"org.eclipse.mylyn.java.tasks",1271861948229
+opened,editor,jd.ide.eclipse,0.1.3,"jd.ide.eclipse.editors.JDClassFileEditor.macosx.x86",1271861949538
+activated,editor,jd.ide.eclipse,0.1.3,"jd.ide.eclipse.editors.JDClassFileEditor.macosx.x86",1271861949577
+activated,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1271861969296
+closed,editor,jd.ide.eclipse,0.1.3,"jd.ide.eclipse.editors.JDClassFileEditor.macosx.x86",1271861969297
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.delete",1271861973073
+error,log,,,"Unexpected Exception",1271861973787
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271862075008
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271862238981
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271862242466
+activated,view,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.PackageExplorer",1271862248932
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271862249029
+activated,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1271862250348
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.copy",1271862252169
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271862253389
+activated,view,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.PackageExplorer",1271862272615
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271862272741
+activated,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1271862273495
+activated,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1271862275916
+activated,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1271862289587
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271862317766
+activated,view,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.PackageExplorer",1271862498272
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271862498385
+activated,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1271862498920
+error,log,,,"Unexpected Exception",1271862503085
+error,log,,,"Unexpected Exception",1271862503087
+error,log,,,"Unexpected Exception",1271862503094
+error,log,,,"Unexpected Exception",1271862503097
+error,log,,,"Unexpected Exception",1271862503099
+error,log,,,"Unexpected Exception",1271862503100
+error,log,,,"Unexpected Exception",1271862503102
+error,log,,,"Unexpected Exception",1271862503104
+error,log,,,"Unexpected Exception",1271862507629
+error,log,,,"Unexpected Exception",1271862510644
+error,log,,,"Unexpected Exception",1271862515657
+error,log,,,"Unexpected Exception",1271862526669
+error,log,,,"Unexpected Exception",1271862530179
+error,log,,,"Unexpected Exception",1271862531033
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271862531094
+error,log,,,"Unexpected Exception",1271862533231
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271862533260
+error,log,,,"Unexpected Exception",1271862534191
+error,log,,,"Unexpected Exception",1271862535703
+error,log,,,"Unexpected Exception",1271862538573
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271862538611
+error,log,,,"Unexpected Exception",1271862539216
+error,log,,,"Unexpected Exception",1271862543727
+error,log,,,"Unexpected Exception",1271862546664
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271862546690
+error,log,,,"Unexpected Exception",1271862547238
+error,log,,,"Unexpected Exception",1271862550001
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271862550191
+error,log,,,"Unexpected Exception",1271862550748
+error,log,,,"Unexpected Exception",1271862553267
+error,log,,,"Unexpected Exception",1271862554920
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271862555013
+error,log,,,"Unexpected Exception",1271862555844
+error,log,,,"Unexpected Exception",1271862558591
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271862558648
+error,log,,,"Unexpected Exception",1271862559280
+error,log,,,"Unexpected Exception",1271862559606
+error,log,,,"Unexpected Exception",1271862559754
+error,log,,,"Unexpected Exception",1271862560299
+error,log,,,"IO error while downloading http://dl.google.com/eclipse/plugin/3.5/site.xml?id=1267529576571&ev=3.5.2.R35x_v20091203-1235&v=com.google.gdt.eclipse.suite.e35.feature_1.3.2.v201003242055&gaev=",1271862563127
+error,log,,,"Unexpected Exception",1271862564186
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271862564234
+error,log,,,"Unexpected Exception",1271862564813
+error,log,,,"Unexpected Exception",1271862566323
+error,log,,,"Unexpected Exception",1271862567841
+error,log,,,"Unexpected Exception",1271862570854
+executed,command,org.eclipse.ui.ide,3.5.2.M20100113-0800,"org.eclipse.jdt.ui.edit.text.java.correction.assist.proposals",1271862571161
+opened,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1271862571974
+activated,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1271862571996
+error,log,,,"Unexpected Exception",1271862572064
+error,log,,,"Unexpected Exception",1271862573518
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.undo",1271862574496
+error,log,,,"Unexpected Exception",1271862575080
+activated,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1271862577044
+closed,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1271862577045
+error,log,,,"Unexpected Exception",1271862577884
+error,log,,,"Unexpected Exception",1271862579524
+error,log,,,"Unexpected Exception",1271862580895
+error,log,,,"Unexpected Exception",1271862592909
+error,log,,,"Unexpected Exception",1271862595141
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271862595187
+error,log,,,"Unexpected Exception",1271862597423
+error,log,,,"Unexpected Exception",1271862598940
+error,log,,,"Unexpected Exception",1271862599952
+error,log,,,"Unexpected Exception",1271862600965
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.delete",1271862602355
+error,log,,,"Unexpected Exception",1271862603729
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271862603790
+error,log,,,"Unexpected Exception",1271862605483
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271862607335
+error,log,,,"Unexpected Exception",1271862611996
+error,log,,,"Unexpected Exception",1271862616032
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271862616061
+executed,command,org.eclipse.ui.workbench.texteditor,3.5.1.r352_v20100105,"org.eclipse.ui.edit.text.select.wordPrevious",1271862617489
+error,log,,,"Unexpected Exception",1271862617515
+executed,command,org.eclipse.ui.workbench.texteditor,3.5.1.r352_v20100105,"org.eclipse.ui.edit.text.select.wordPrevious",1271862617628
+executed,command,org.eclipse.ui.workbench.texteditor,3.5.1.r352_v20100105,"org.eclipse.ui.edit.text.select.wordPrevious",1271862617807
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.cut",1271862618752
+error,log,,,"Unexpected Exception",1271862620533
+error,log,,,"Unexpected Exception",1271862623327
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271862623367
+error,log,,,"Unexpected Exception",1271862624048
+error,log,,,"Unexpected Exception",1271862624864
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271862624881
+error,log,,,"Unexpected Exception",1271862627843
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271862627985
+error,log,,,"Unexpected Exception",1271862629096
+error,log,,,"Unexpected Exception",1271862630508
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271862630598
+error,log,,,"Unexpected Exception",1271862631114
+error,log,,,"Unexpected Exception",1271862632129
+error,log,,,"Unexpected Exception",1271862633145
+error,log,,,"Unexpected Exception",1271862636656
+error,log,,,"Unexpected Exception",1271862637799
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271862637849
+error,log,,,"Unexpected Exception",1271862638675
+error,log,,,"Unexpected Exception",1271862639552
+error,log,,,"Unexpected Exception",1271862640694
+error,log,,,"Unexpected Exception",1271862644459
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271862644498
+error,log,,,"Unexpected Exception",1271862645710
+error,log,,,"Unexpected Exception",1271862647220
+executed,command,org.eclipse.ui.ide,3.5.2.M20100113-0800,"org.eclipse.jdt.ui.edit.text.java.correction.assist.proposals",1271862649385
+error,log,,,"Unexpected Exception",1271862650590
+error,log,,,"Unexpected Exception",1271862651232
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.cut",1271862654553
+error,log,,,"Unexpected Exception",1271862655249
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.paste",1271862655502
+error,log,,,"Unexpected Exception",1271862656265
+executed,command,org.eclipse.ui.workbench.texteditor,3.5.1.r352_v20100105,"org.eclipse.ui.edit.text.select.wordNext",1271862660993
+executed,command,org.eclipse.ui.workbench.texteditor,3.5.1.r352_v20100105,"org.eclipse.ui.edit.text.select.wordNext",1271862661300
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.copy",1271862662108
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.paste",1271862663883
+error,log,,,"Unexpected Exception",1271862665287
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.cut",1271862667112
+error,log,,,"Unexpected Exception",1271862667805
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.paste",1271862668326
+error,log,,,"Unexpected Exception",1271862669320
+executed,command,org.eclipse.ui.workbench.texteditor,3.5.1.r352_v20100105,"org.eclipse.ui.edit.text.select.wordNext",1271862670374
+executed,command,org.eclipse.ui.workbench.texteditor,3.5.1.r352_v20100105,"org.eclipse.ui.edit.text.select.wordNext",1271862670816
+executed,command,org.eclipse.ui.workbench.texteditor,3.5.1.r352_v20100105,"org.eclipse.ui.edit.text.select.wordNext",1271862671041
+error,log,,,"Unexpected Exception",1271862673836
+error,log,,,"Unexpected Exception",1271862678349
+executed,command,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.edit.text.java.format",1271862678626
+error,log,,,"Unexpected Exception",1271862679367
+executed,command,org.eclipse.ui.workbench.texteditor,3.5.1.r352_v20100105,"org.eclipse.ui.edit.text.select.wordNext",1271862682641
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.delete",1271862682963
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.file.save",1271862683602
+error,log,,,"Unexpected Exception",1271862684388
+executed,command,org.eclipse.ui.ide,3.5.2.M20100113-0800,"org.eclipse.jdt.ui.edit.text.java.correction.assist.proposals",1271862685083
+error,log,,,"Unexpected Exception",1271862687584
+error,log,,,"Unexpected Exception",1271862688411
+error,log,,,"Unexpected Exception",1271862689423
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.delete",1271862689859
+error,log,,,"Unexpected Exception",1271862690445
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.delete",1271862690658
+error,log,,,"Unexpected Exception",1271862691455
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.file.save",1271862696636
+executed,command,org.eclipse.ui.ide,3.5.2.M20100113-0800,"org.eclipse.ui.project.buildAll",1271862696889
+error,log,,,"Unexpected Exception",1271862696903
+error,log,,,"Unexpected Exception",1271862696935
+error,log,,,"Unexpected Exception",1271862696937
+error,log,,,"Unexpected Exception",1271862697468
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271862699613
+activated,view,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.PackageExplorer",1271862702825
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271862702966
+activated,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1271862702982
+activated,view,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.PackageExplorer",1271862705300
+activated,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1271862705935
+activated,view,org.eclipse.ant.ui,3.4.2.v20091204_r352,"org.eclipse.ant.ui.views.AntView",1271862766348
+error,log,,,"Unexpected Exception",1271862767826
+activated,view,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console.ConsoleView",1271862768438
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271862771574
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271862795768
+activated,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1271862799030
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.copy",1271862800741
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271862801190
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271862806286
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.copy",1271862808993
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271862809476
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271862811506
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.copy",1271862813095
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271862814311
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271862831169
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.copy",1271862835073
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271862835547
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271862947922
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271862961312
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271863203662
+opened,editor,jd.ide.eclipse,0.1.3,"jd.ide.eclipse.editors.JDClassFileEditor.macosx.x86",1271863232577
+activated,editor,jd.ide.eclipse,0.1.3,"jd.ide.eclipse.editors.JDClassFileEditor.macosx.x86",1271863232604
+opened,editor,jd.ide.eclipse,0.1.3,"jd.ide.eclipse.editors.JDClassFileEditor.macosx.x86",1271863238444
+activated,editor,jd.ide.eclipse,0.1.3,"jd.ide.eclipse.editors.JDClassFileEditor.macosx.x86",1271863238461
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271863248694
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271863352389
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271863352927
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271863353952
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271863380983
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271865298523
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271865341159
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271865409618
+activated,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1271865411556
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.copy",1271865414759
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271865415234
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271865420677
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.copy",1271865421394
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271865421895
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271865431864
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.copy",1271865435487
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271865436803
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271865441197
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.copy",1271865444169
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271865444682
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271865823747
+error,log,,,"Unexpected Exception",1271865831656
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271865831713
+error,log,,,"Unexpected Exception",1271865832507
+error,log,,,"Unexpected Exception",1271865833180
+error,log,,,"Unexpected Exception",1271865834265
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271865834299
+error,log,,,"Unexpected Exception",1271865835695
+error,log,,,"Unexpected Exception",1271865837210
+error,log,,,"Unexpected Exception",1271865845231
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.delete",1271865845833
+error,log,,,"Unexpected Exception",1271865846744
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271865847629
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271865865397
+error,log,,,"Unexpected Exception",1271865879263
+error,log,,,"Unexpected Exception",1271865885047
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271865885097
+error,log,,,"Unexpected Exception",1271865887779
+executed,command,org.eclipse.ui.ide,3.5.2.M20100113-0800,"org.eclipse.jdt.ui.edit.text.java.correction.assist.proposals",1271865891192
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271865892584
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271865892881
+error,log,,,"Unexpected Exception",1271865892935
+error,log,,,"Unexpected Exception",1271865893806
+error,log,,,"Unexpected Exception",1271865897820
+activated,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1271865900418
+error,log,,,"Unexpected Exception",1271865901076
+activated,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1271865903028
+error,log,,,"Unexpected Exception",1271865904828
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.text.contentAssist.proposals",1271865904873
+error,log,,,"Unexpected Exception",1271865906337
+error,log,,,"Unexpected Exception",1271865907847
+executed,command,org.eclipse.ui,3.5.2.M20100120-0800,"org.eclipse.ui.edit.delete",1271865909385
+error,log,,,"Unexpected Exception",1271865910366
+opened,editor,jd.ide.eclipse,0.1.3,"jd.ide.eclipse.editors.JDClassFileEditor.macosx.x86",1271865912152
+activated,editor,jd.ide.eclipse,0.1.3,"jd.ide.eclipse.editors.JDClassFileEditor.macosx.x86",1271865912190
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1271865936357

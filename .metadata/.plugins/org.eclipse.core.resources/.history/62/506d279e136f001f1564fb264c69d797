@@ -1,0 +1,18 @@
+package balmysundaycandy.scalatool.shared;
+
+option optimize_for = SPEED;
+
+option java_package = "balmysundaycandy.scalatool.shared";
+option java_outer_classname = "RemoteCallResponse";
+
+message CallResponse {
+  required RequestType requestType = 1;
+  required bytes responseBytes = 2;
+  optional string responseLog = 3;
+  optional string errorLog = 4;
+
+  enum RequestType {
+    RUN_SERVICE_CALL = 0;
+    RUN_REMOTE_CALL = 1;
+  }
+}

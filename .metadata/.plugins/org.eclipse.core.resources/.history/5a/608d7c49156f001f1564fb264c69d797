@@ -1,0 +1,33 @@
+package balmysundaycandy.marble.controller;
+
+import org.slim3.controller.Controller;
+import org.slim3.controller.Navigation;
+import org.slim3.util.BeanUtil;
+
+import balmysundaycandy.marble.broker.BlokingDelegate;
+import balmysundaycandy.marble.broker.BrokerageConfig;
+
+import com.google.apphosting.api.ApiProxy;
+
+public class ConfigController extends Controller {
+
+	@Override
+	protected Navigation run() {
+		BrokerageConfig brokerageConfig = new BrokerageConfig();
+		BeanUtil.copy(request, brokerageConfig);
+
+		if (brokerageConfig.getSnatchAll()) {
+			// swap delegate
+			BlokingDelegate blokingDelegate = new BlokingDelegate();
+			ApiProxy.setDelegate(blokingDelegate);
+		} else {
+			if (ApiProxy.getDelegate() instanceof BlokingDelegate) {
+				// if current deleget is broker, swap original delegate
+				BlokingDelegate blokingDelegate = (BlokingDelegate) ApiProxy.getDelegate();
+				ApiProxy.setDelegate(blokingDelegate.getOriginal());
+			}
+		}
+
+		return forward("WEB-INF/jsp/config.jsp");
+	}
+}

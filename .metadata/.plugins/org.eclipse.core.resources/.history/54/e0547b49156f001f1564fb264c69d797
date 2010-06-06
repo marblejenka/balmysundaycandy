@@ -1,0 +1,19 @@
+package balmysundaycandy.marble.controller.snatch;
+
+import org.slim3.controller.Controller;
+import org.slim3.controller.Navigation;
+
+import com.google.appengine.api.labs.taskqueue.Queue;
+import com.google.appengine.api.labs.taskqueue.QueueFactory;
+import com.google.appengine.api.labs.taskqueue.TaskOptions;
+
+public class TaskqueueAddController extends Controller {
+
+	@Override
+	protected Navigation run() {
+		Queue queue = QueueFactory.getDefaultQueue();
+		queue.add(TaskOptions.Builder.url("/snatch/TaskqueueHandle"));
+
+		return forward("/WEB-INF/jsp/snatch.jsp");
+	}
+}

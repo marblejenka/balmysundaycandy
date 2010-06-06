@@ -1,0 +1,5 @@
+package balmysundaycandy.core.delegate;
+
+public class OperationFetchDelegate {
+
+}

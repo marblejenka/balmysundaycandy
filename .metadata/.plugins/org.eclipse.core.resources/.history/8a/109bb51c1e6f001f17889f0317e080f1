@@ -1,0 +1,9 @@
+// ************************************************************
+// sample calls appengine datastore from local interpreter, with slim3
+// this work on devappserver only, because of balmysundaycandy dose not support transaction.
+// ************************************************************
+// put with slim3 global transaction
+val gtx = Datastore.beginGlobalTransaction
+gtx.put(new Entity("test"))
+gtx.put(new Entity("test"))
+gtx.commit

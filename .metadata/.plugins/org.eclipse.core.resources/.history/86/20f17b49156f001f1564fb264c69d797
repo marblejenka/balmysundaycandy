@@ -1,0 +1,16 @@
+package balmysundaycandy.marble.controller;
+
+import org.slim3.controller.Controller;
+import org.slim3.controller.Navigation;
+
+import balmysundaycandy.marble.broker.LogEntryService;
+
+public class LogsController extends Controller {
+
+	@Override
+	protected Navigation run() {
+		requestScope("logs", LogEntryService.findAll());
+
+		return forward("WEB-INF/jsp/logs.jsp");
+	}
+}

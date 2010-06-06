@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="SynchronizeViewSettings">
+		<item value="1272043429153" key="lastactiveparticipant_sec_id"/>
+		<item value="org.eclipse.team.svn.ui.synchronize.update.SynchronizeModelParticipant" key="lastactiveparticipant_id"/>
+		<section name="org.eclipse.team.svn.ui.synchronize.update.SynchronizeModelParticipant.1272043429153">
+			<item value="org.eclipse.team.ui.activeModelProvider" key="org.eclipse.team.ui.activeModelProvider"/>
+		</section>
+		<section name="org.eclipse.team.svn.ui.synchronize.update.SynchronizeModelParticipant.1271850788858">
+			<item value="org.eclipse.team.ui.activeModelProvider" key="org.eclipse.team.ui.activeModelProvider"/>
+			<item value="1" key="org.eclipse.team.ui.P_SYNCVIEWPAGE_MODE"/>
+		</section>
+	</section>
+	<section name="ConfigureProjectWizard">
+		<item value="org.eclipse.egit.ui.internal.sharing.SharingWizard" key="selectedWizardId"/>
+	</section>
+</section>
