@@ -14,6 +14,7 @@ import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.EntityNotFoundException;
+import com.google.appengine.api.datastore.EntityTranslator;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyRange;
 import com.google.appengine.api.datastore.PreparedQuery;
@@ -24,6 +25,7 @@ import com.google.apphosting.api.ApiBasePb.VoidProto;
 import com.google.apphosting.api.ApiProxy.ApiConfig;
 import com.google.apphosting.api.DatastorePb.GetRequest;
 import com.google.apphosting.api.DatastorePb.PutRequest;
+import com.google.storage.onestore.v3.OnestoreEntity.EntityProto;
 import com.google.storage.onestore.v3.OnestoreEntity.Path;
 import com.google.storage.onestore.v3.OnestoreEntity.Reference;
 import com.google.storage.onestore.v3.OnestoreEntity.Path.Element;
@@ -40,85 +42,61 @@ public class AsyncDatastoreServiceImpl implements AsyncDatastoreService {
 	 * low level api datastore service for use transaction stack.
 	 */
 	private static final DatastoreService datastoreService = DatastoreServiceFactory.getDatastoreService();
-	
+
 	private static final ApiConfig apiConfig = new ApiConfig();
 	static {
 		apiConfig.setDeadlineInSeconds(Double.MAX_VALUE);
 	}
-	
-	
+
 	@Override
 	public Future<Entity> get(Key key) throws EntityNotFoundException {
-		Transaction transaction = datastoreService.getCurrentTransaction();
+		// TODO トランザクションの取り扱いポリシーを決める。パッケージを変えてllapiのスタックを使うのがいいけど、非同期にはならない
+		Transaction transaction = datastoreService.beginTransaction();
 		return get(transaction, key);
 	}
 
 	@Override
 	public Future<Entity> get(Transaction txn, Key key) throws EntityNotFoundException {
-		GetRequest request = new GetRequest();
-		{
-			Element element = new Element();
-			element.setId(key.getId());
-			element.setType(key.getKind());
-
-			Path path = new Path();
-			path.addElement(element);
-
-			Reference reference = new Reference();
-			reference.setApp(ApiProxy.getCurrentEnvironment().getAppId());
-			reference.setPath(path);
-
-			request.addKey(reference);
-
-			com.google.apphosting.api.DatastorePb.Transaction transaction = new com.google.apphosting.api.DatastorePb.Transaction();
-			transaction.setHandle(Long.parseLong(txn.getId()));
-
-			request.setTransaction(transaction);
-		}
-
-		return new EntityFuture(DatastoreOperations.GET.callAsync(request, apiConfig));
+		return new EntityFuture(DatastoreOperations.GET.callAsync(GetRequestTransralator.request2pb(txn, key), apiConfig));
 	}
 
-	@Override
-	public Future<Key> put(Entity entity) {
-		PutRequest request = new PutRequest();
-		return new KeyFuture(DatastoreOperations.PUT.callAsync(request, apiConfig));
-	}
-	
-	// -------unimplemented
-	
-	
-	
 	@Override
 	public Future<Map<Key, Entity>> get(Iterable<Key> keys) {
-		// TODO Auto-generated method stub
-		return null;
+		// TODO トランザクションの取り扱いポリシーを決める。パッケージを変えてllapiのスタックを使うのがいいけど、非同期にはならない
+		Transaction transaction = datastoreService.beginTransaction();
+		return get(transaction, keys);
 	}
 
 	@Override
 	public Future<Map<Key, Entity>> get(Transaction txn, Iterable<Key> keys) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public Future<KeyRange> allocateIds(String kind, long num) {
-		// TODO Auto-generated method stub
+		// TODO futureの実装
 		return null;
 	}
 
 	@Override
-	public Future<KeyRange> allocateIds(Key parent, String kind, long num) {
-		// TODO Auto-generated method stub
-		return null;
+	public Future<Key> put(Entity entity) {
+		// TODO トランザクションの取り扱いポリシーを決める。パッケージを変えてllapiのスタックを使うのがいいけど、非同期にはならない
+		Transaction transaction = datastoreService.beginTransaction();
+		return put(transaction, entity);
 	}
 
 	@Override
-	public Future<Transaction> beginTransaction() {
-		// TODO Auto-generated method stub
-		return null;
+	public Future<Key> put(Transaction transaction, Entity entity) {
+		return new KeyFuture(DatastoreOperations.PUT.callAsync(PutRequestTranslator.request2bp(transaction, entity), apiConfig));
 	}
+
+	@Override
+	public Future<List<Key>> put(Iterable<Entity> entities) {
+		Transaction transaction = datastoreService.beginTransaction();
+		return put(transaction, entities);
+	}
+
+	@Override
+	public Future<List<Key>> put(Transaction transaction, Iterable<Entity> entities) {
+		return put(transaction, entities);
+	}
+	
+	// unimplemented
 
 	@Override
 	public Future<VoidProto> delete(Key... keys) {
@@ -145,7 +123,19 @@ public class AsyncDatastoreServiceImpl implements AsyncDatastoreService {
 	}
 
 	@Override
-	public Future<Collection<Transaction>> getActiveTransactions() {
+	public Future<PreparedQuery> prepare(Query query) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Future<PreparedQuery> prepare(Transaction txn, Query query) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Future<Transaction> beginTransaction() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -163,34 +153,20 @@ public class AsyncDatastoreServiceImpl implements AsyncDatastoreService {
 	}
 
 	@Override
-	public Future<PreparedQuery> prepare(Query query) {
+	public Future<Collection<Transaction>> getActiveTransactions() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Future<PreparedQuery> prepare(Transaction txn, Query query) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public Future<Key> put(Transaction transaction, Entity entity) {
+	public Future<KeyRange> allocateIds(String kind, long num) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Future<List<Key>> put(Iterable<Entity> iterable) {
+	public Future<KeyRange> allocateIds(Key parent, String kind, long num) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public Future<List<Key>> put(Transaction transaction, Iterable<Entity> iterable) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }
