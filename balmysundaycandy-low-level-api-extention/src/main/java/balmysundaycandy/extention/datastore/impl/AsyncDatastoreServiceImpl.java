@@ -14,7 +14,6 @@ import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.EntityNotFoundException;
-import com.google.appengine.api.datastore.EntityTranslator;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyRange;
 import com.google.appengine.api.datastore.PreparedQuery;
@@ -22,15 +21,6 @@ import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Transaction;
 import com.google.apphosting.api.ApiBasePb.VoidProto;
 import com.google.apphosting.api.ApiProxy.ApiConfig;
-<<<<<<< HEAD
-=======
-import com.google.apphosting.api.DatastorePb.GetRequest;
-import com.google.apphosting.api.DatastorePb.PutRequest;
-import com.google.storage.onestore.v3.OnestoreEntity.EntityProto;
-import com.google.storage.onestore.v3.OnestoreEntity.Path;
-import com.google.storage.onestore.v3.OnestoreEntity.Reference;
-import com.google.storage.onestore.v3.OnestoreEntity.Path.Element;
->>>>>>> origin/master
 
 /**
  * "async" datastore service
@@ -71,12 +61,8 @@ public class AsyncDatastoreServiceImpl implements AsyncDatastoreService {
 
 	@Override
 	public Future<Map<Key, Entity>> get(Transaction txn, Iterable<Key> keys) {
-<<<<<<< HEAD
 		// TODO futureの実装
 		return null;
-=======
-		return get(txn, keys);
->>>>>>> origin/master
 	}
 
 	@Override
