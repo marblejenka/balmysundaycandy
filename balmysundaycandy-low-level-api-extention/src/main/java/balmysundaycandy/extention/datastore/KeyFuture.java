@@ -23,6 +23,9 @@ public class KeyFuture implements Future<Key> {
 
 	@Override
 	public Key get() throws InterruptedException, ExecutionException {
+		PutResponse response = protocolMessageFuture.get();
+		
+		
 		return null;
 	}
 
