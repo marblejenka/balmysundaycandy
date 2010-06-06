@@ -1,4 +1,4 @@
-package balmysundaycandy.extention.datastore.impl;
+package com.google.appengine.api.datastore;
 
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.Transaction;

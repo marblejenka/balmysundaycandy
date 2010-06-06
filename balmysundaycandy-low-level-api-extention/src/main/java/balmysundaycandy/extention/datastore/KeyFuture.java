@@ -5,8 +5,11 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
+import sun.security.krb5.internal.ktab.KeyTab;
+
 import com.google.appengine.api.datastore.Key;
 import com.google.apphosting.api.DatastorePb.PutResponse;
+import com.google.storage.onestore.v3.OnestoreEntity.Reference;
 
 public class KeyFuture implements Future<Key> {
 
@@ -24,6 +27,8 @@ public class KeyFuture implements Future<Key> {
 	@Override
 	public Key get() throws InterruptedException, ExecutionException {
 		PutResponse response = protocolMessageFuture.get();
+		
+		Reference reference = response.getKey(0);
 		
 		
 		return null;
