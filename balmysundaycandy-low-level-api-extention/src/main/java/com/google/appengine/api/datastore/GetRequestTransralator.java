@@ -1,12 +1,7 @@
 package com.google.appengine.api.datastore;
 
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.Transaction;
-import com.google.apphosting.api.ApiProxy;
 import com.google.apphosting.api.DatastorePb.GetRequest;
-import com.google.storage.onestore.v3.OnestoreEntity.Path;
 import com.google.storage.onestore.v3.OnestoreEntity.Reference;
-import com.google.storage.onestore.v3.OnestoreEntity.Path.Element;
 
 // TOTO rename
 public class GetRequestTransralator {
@@ -25,20 +20,12 @@ public class GetRequestTransralator {
 
 		return request;
 	}
-	
-	public static Reference key2reference(Key key) {
-		Element element = new Element();
-		element.setId(key.getId());
-		element.setType(key.getKind());
-
-		Path path = new Path();
-		path.addElement(element);
-
-		Reference reference = new Reference();
-		reference.setApp(ApiProxy.getCurrentEnvironment().getAppId());
-		reference.setPath(path);
 		
-		return reference;
+	public static Reference key2reference(Key key) {
+		return KeyTranslator.convertToPb(key);
 	}
-
+	
+	public static Key reference2key(Reference reference){
+		return KeyTranslator.createFromPb(reference);
+	}
 }
