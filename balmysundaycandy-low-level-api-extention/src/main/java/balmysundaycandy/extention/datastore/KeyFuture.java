@@ -8,7 +8,6 @@ import java.util.concurrent.TimeoutException;
 import com.google.appengine.api.datastore.GetRequestTransralator;
 import com.google.appengine.api.datastore.Key;
 import com.google.apphosting.api.DatastorePb.PutResponse;
-import com.google.storage.onestore.v3.OnestoreEntity.Reference;
 
 public class KeyFuture implements Future<Key> {
 
@@ -26,13 +25,13 @@ public class KeyFuture implements Future<Key> {
 	@Override
 	public Key get() throws InterruptedException, ExecutionException {
 		PutResponse response = protocolMessageFuture.get();
-		Reference reference = response.getKey(0);
-		return GetRequestTransralator.reference2key(reference);
+		return putresponse2key(response);
 	}
 
 	@Override
 	public Key get(long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException {
-		return null;
+		PutResponse response = protocolMessageFuture.get(timeout, unit);
+		return putresponse2key(response);
 	}
 
 	@Override
@@ -44,5 +43,9 @@ public class KeyFuture implements Future<Key> {
 	public boolean isDone() {
 		return protocolMessageFuture.isDone();
 	}
-
+	
+	// TODO low level apiと実装があってないかも
+	private Key putresponse2key(PutResponse putResponse) {
+		return GetRequestTransralator.reference2key(putResponse.getKey(0));
+	}
 }
