@@ -8,6 +8,7 @@ import java.util.concurrent.Future;
 import balmysundaycandy.extention.datastore.AsyncDatastoreService;
 import balmysundaycandy.extention.datastore.EntityFuture;
 import balmysundaycandy.extention.datastore.KeyFuture;
+import balmysundaycandy.extention.datastore.TransactionFuture;
 import balmysundaycandy.more.low.level.operations.datastore.DatastoreOperations;
 
 import com.google.appengine.api.datastore.DatastoreService;
@@ -20,9 +21,13 @@ import com.google.appengine.api.datastore.KeyRange;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.PutRequestTranslator;
 import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.ReferenceTranslator;
 import com.google.appengine.api.datastore.Transaction;
+import com.google.apphosting.api.ApiProxy;
+import com.google.apphosting.api.DatastorePb;
 import com.google.apphosting.api.ApiBasePb.VoidProto;
 import com.google.apphosting.api.ApiProxy.ApiConfig;
+import com.google.apphosting.api.DatastorePb.AllocateIdsRequest;
 
 /**
  * "async" datastore service
@@ -37,7 +42,7 @@ public class AsyncDatastoreServiceImpl implements AsyncDatastoreService {
 	 */
 	private static final DatastoreService datastoreService = DatastoreServiceFactory.getDatastoreService();
 
-	private static final ApiConfig apiConfig = new ApiConfig();
+	public static final ApiConfig apiConfig = new ApiConfig();
 	static {
 		apiConfig.setDeadlineInSeconds(Double.MAX_VALUE);
 	}
@@ -130,31 +135,35 @@ public class AsyncDatastoreServiceImpl implements AsyncDatastoreService {
 
 	@Override
 	public Future<Transaction> beginTransaction() {
-		// TODO Auto-generated method stub
-		return null;
+		DatastorePb.BeginTransactionRequest request = new DatastorePb.BeginTransactionRequest();
+		request.setApp(ApiProxy.getCurrentEnvironment().getAppId());
+		return new TransactionFuture(DatastoreOperations.BEGIN_TRANSACTION.callAsync(request, apiConfig));
 	}
 
 	@Override
 	public Future<Transaction> getCurrentTransaction() {
-		// TODO Auto-generated method stub
-		return null;
+		// TODO 実装方針を決める
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public Future<Transaction> getCurrentTransaction(Transaction returnedIfNoTxn) {
-		// TODO Auto-generated method stub
-		return null;
+		// TODO 実装方針を決める
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public Future<Collection<Transaction>> getActiveTransactions() {
-		// TODO Auto-generated method stub
-		return null;
+		// TODO 実装方針を決める
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public Future<KeyRange> allocateIds(String kind, long num) {
-		// TODO Auto-generated method stub
+		AllocateIdsRequest request = new AllocateIdsRequest();
+		request.setSize(num);
+		request.setModelKey(ReferenceTranslator.kind2reference(kind));
+		DatastoreOperations.ALLOCATE_IDS.callAsync(request , apiConfig);
 		return null;
 	}
 
