@@ -9,34 +9,35 @@ import com.google.apphosting.api.ApiBasePb.VoidProto;
 
 public class VoidFuture implements Future<VoidProto> {
 
+	Future<VoidProto> protocolMessageFuture;
+
+	public VoidFuture(Future<VoidProto> protocolMessageFuture) {
+		this.protocolMessageFuture = protocolMessageFuture;
+	}
+
 	@Override
 	public boolean cancel(boolean mayInterruptIfRunning) {
-		// TODO Auto-generated method stub
-		return false;
+		return protocolMessageFuture.cancel(mayInterruptIfRunning);
 	}
 
 	@Override
 	public VoidProto get() throws InterruptedException, ExecutionException {
-		// TODO Auto-generated method stub
-		return null;
+		return protocolMessageFuture.get();
 	}
 
 	@Override
 	public VoidProto get(long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException {
-		// TODO Auto-generated method stub
-		return null;
+		return protocolMessageFuture.get(timeout, unit);
 	}
 
 	@Override
 	public boolean isCancelled() {
-		// TODO Auto-generated method stub
-		return false;
+		return protocolMessageFuture.isCancelled();
 	}
 
 	@Override
 	public boolean isDone() {
-		// TODO Auto-generated method stub
-		return false;
+		return protocolMessageFuture.isDone();
 	}
 
 }
