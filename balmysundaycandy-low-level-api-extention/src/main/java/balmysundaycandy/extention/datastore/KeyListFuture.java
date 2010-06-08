@@ -7,8 +7,8 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-import com.google.appengine.api.datastore.GetRequestTransralator;
 import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.ReferenceTranslator;
 import com.google.apphosting.api.DatastorePb.PutResponse;
 
 public class KeyListFuture implements Future<List<Key>> {
@@ -50,7 +50,7 @@ public class KeyListFuture implements Future<List<Key>> {
 		int keySize = putResponse.keySize();
 		List<Key> result = new ArrayList<Key>(keySize);
 		for (int i = 0; i < keySize; i++) {
-			result.add(GetRequestTransralator.reference2key(putResponse.getKey(i)));
+			result.add(ReferenceTranslator.reference2key(putResponse.getKey(i)));
 		}
 		return result;
 	}

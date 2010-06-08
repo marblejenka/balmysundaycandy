@@ -5,8 +5,8 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-import com.google.appengine.api.datastore.GetRequestTransralator;
 import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.ReferenceTranslator;
 import com.google.apphosting.api.DatastorePb.PutResponse;
 
 public class KeyFuture implements Future<Key> {
@@ -46,6 +46,6 @@ public class KeyFuture implements Future<Key> {
 	
 	// TODO low level apiと実装があってないかも
 	private Key putresponse2key(PutResponse putResponse) {
-		return GetRequestTransralator.reference2key(putResponse.getKey(0));
+		return ReferenceTranslator.reference2key(putResponse.getKey(0));
 	}
 }

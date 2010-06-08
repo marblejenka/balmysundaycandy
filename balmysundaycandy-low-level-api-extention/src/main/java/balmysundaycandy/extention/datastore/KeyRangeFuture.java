@@ -5,38 +5,49 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
+import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyRange;
+import com.google.apphosting.api.DatastorePb.AllocateIdsResponse;
 
 public class KeyRangeFuture implements Future<KeyRange>{
 
+	Key parent;
+	
+	String kind;
+	
+	Future<AllocateIdsResponse> protocolMessageFuture;
+
+	public KeyRangeFuture(Key parent, String kind, Future<AllocateIdsResponse> protocolMessageFuture) {
+		this.parent = parent;
+		this.kind = kind;
+		this.protocolMessageFuture = protocolMessageFuture;
+	}
+
 	@Override
 	public boolean cancel(boolean mayInterruptIfRunning) {
-		// TODO Auto-generated method stub
-		return false;
+		return protocolMessageFuture.cancel(mayInterruptIfRunning);
 	}
 
 	@Override
 	public KeyRange get() throws InterruptedException, ExecutionException {
-		// TODO Auto-generated method stub
-		return null;
+		AllocateIdsResponse response = protocolMessageFuture.get();
+		return new KeyRange(parent, kind, response.getStart(), response.getEnd());
 	}
 
 	@Override
 	public KeyRange get(long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException {
-		// TODO Auto-generated method stub
-		return null;
+		AllocateIdsResponse response = protocolMessageFuture.get(timeout, unit);
+		return new KeyRange(parent, kind, response.getStart(), response.getEnd());
 	}
 
 	@Override
 	public boolean isCancelled() {
-		// TODO Auto-generated method stub
-		return false;
+		return protocolMessageFuture.isCancelled();
 	}
 
 	@Override
 	public boolean isDone() {
-		// TODO Auto-generated method stub
-		return false;
+		return protocolMessageFuture.isDone();
 	}
 
 }
