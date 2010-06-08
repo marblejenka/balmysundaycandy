@@ -6,13 +6,18 @@ import java.util.Map;
 import java.util.concurrent.Future;
 
 import balmysundaycandy.extention.datastore.AsyncDatastoreService;
+import balmysundaycandy.extention.datastore.EnittyMapFuture;
 import balmysundaycandy.extention.datastore.EntityFuture;
 import balmysundaycandy.extention.datastore.KeyFuture;
+import balmysundaycandy.extention.datastore.KeyListFuture;
+import balmysundaycandy.extention.datastore.KeyRangeFuture;
 import balmysundaycandy.extention.datastore.TransactionFuture;
+import balmysundaycandy.extention.datastore.DeleteResponseFuture;
 import balmysundaycandy.more.low.level.operations.datastore.DatastoreOperations;
 
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.DeleteRequestTranslator;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.EntityNotFoundException;
 import com.google.appengine.api.datastore.GetRequestTransralator;
@@ -24,10 +29,10 @@ import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.ReferenceTranslator;
 import com.google.appengine.api.datastore.Transaction;
 import com.google.apphosting.api.ApiProxy;
-import com.google.apphosting.api.DatastorePb;
 import com.google.apphosting.api.ApiBasePb.VoidProto;
 import com.google.apphosting.api.ApiProxy.ApiConfig;
 import com.google.apphosting.api.DatastorePb.AllocateIdsRequest;
+import com.google.apphosting.api.DatastorePb.BeginTransactionRequest;
 
 /**
  * "async" datastore service
@@ -68,8 +73,7 @@ public class AsyncDatastoreServiceImpl implements AsyncDatastoreService {
 
 	@Override
 	public Future<Map<Key, Entity>> get(Transaction txn, Iterable<Key> keys) {
-		// TODO futureの実装
-		return null;
+		return new EnittyMapFuture(DatastoreOperations.GET.callAsync(GetRequestTransralator.request2pb(txn, keys), apiConfig));
 	}
 
 	@Override
@@ -86,56 +90,55 @@ public class AsyncDatastoreServiceImpl implements AsyncDatastoreService {
 
 	@Override
 	public Future<List<Key>> put(Iterable<Entity> entities) {
+		// TODO トランザクションの取り扱いポリシーを決める。パッケージを変えてllapiのスタックを使うのがいいけど、非同期にはならない
 		Transaction transaction = datastoreService.beginTransaction();
 		return put(transaction, entities);
 	}
 
 	@Override
 	public Future<List<Key>> put(Transaction transaction, Iterable<Entity> entities) {
-		return put(transaction, entities);
+		return new KeyListFuture(DatastoreOperations.PUT.callAsync(PutRequestTranslator.request2bp(transaction, entities), apiConfig));
 	}
-	
-	// unimplemented
 
 	@Override
 	public Future<VoidProto> delete(Key... keys) {
-		// TODO Auto-generated method stub
-		return null;
+		// TODO トランザクションの取り扱いポリシーを決める。パッケージを変えてllapiのスタックを使うのがいいけど、非同期にはならない
+		Transaction transaction = datastoreService.beginTransaction();
+		return delete(transaction, keys);
 	}
 
 	@Override
 	public Future<VoidProto> delete(Transaction transaction, Key... keys) {
-		// TODO Auto-generated method stub
-		return null;
+		return new DeleteResponseFuture(DatastoreOperations.DELETE.callAsync(DeleteRequestTranslator.keys2request(transaction, keys), apiConfig));
 	}
 
 	@Override
 	public Future<VoidProto> delete(Iterable<Key> keys) {
-		// TODO Auto-generated method stub
-		return null;
+		// TODO トランザクションの取り扱いポリシーを決める。パッケージを変えてllapiのスタックを使うのがいいけど、非同期にはならない
+		Transaction transaction = datastoreService.beginTransaction();
+		return delete(transaction, keys);
 	}
 
 	@Override
-	public Future<VoidProto> delete(Transaction txn, Iterable<Key> keys) {
-		// TODO Auto-generated method stub
-		return null;
+	public Future<VoidProto> delete(Transaction transaction, Iterable<Key> keys) {
+		return new DeleteResponseFuture(DatastoreOperations.DELETE.callAsync(DeleteRequestTranslator.keys2request(transaction, keys), apiConfig));
 	}
 
 	@Override
 	public Future<PreparedQuery> prepare(Query query) {
-		// TODO Auto-generated method stub
-		return null;
+		// TODO 実装方針を決める
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public Future<PreparedQuery> prepare(Transaction txn, Query query) {
-		// TODO Auto-generated method stub
-		return null;
+		// TODO 実装方針を決める
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public Future<Transaction> beginTransaction() {
-		DatastorePb.BeginTransactionRequest request = new DatastorePb.BeginTransactionRequest();
+		BeginTransactionRequest request = new BeginTransactionRequest();
 		request.setApp(ApiProxy.getCurrentEnvironment().getAppId());
 		return new TransactionFuture(DatastoreOperations.BEGIN_TRANSACTION.callAsync(request, apiConfig));
 	}
@@ -163,13 +166,14 @@ public class AsyncDatastoreServiceImpl implements AsyncDatastoreService {
 		AllocateIdsRequest request = new AllocateIdsRequest();
 		request.setSize(num);
 		request.setModelKey(ReferenceTranslator.kind2reference(kind));
-		DatastoreOperations.ALLOCATE_IDS.callAsync(request , apiConfig);
-		return null;
+		return new KeyRangeFuture(null, kind, DatastoreOperations.ALLOCATE_IDS.callAsync(request, apiConfig));
 	}
 
 	@Override
 	public Future<KeyRange> allocateIds(Key parent, String kind, long num) {
-		// TODO Auto-generated method stub
-		return null;
+		AllocateIdsRequest request = new AllocateIdsRequest();
+		request.setSize(num);
+		request.setModelKey(ReferenceTranslator.kind2reference(kind));
+		return new KeyRangeFuture(parent, kind, DatastoreOperations.ALLOCATE_IDS.callAsync(request, apiConfig));
 	}
 }

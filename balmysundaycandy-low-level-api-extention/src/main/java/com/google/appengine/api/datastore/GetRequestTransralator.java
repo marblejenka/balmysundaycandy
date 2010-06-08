@@ -19,4 +19,9 @@ public class GetRequestTransralator {
 
 		return request;
 	}
+
+	public static GetRequest request2pb(Transaction txn, Iterable<Key> keys) {
+		// TODO 実装
+		return null;
+	}
 }

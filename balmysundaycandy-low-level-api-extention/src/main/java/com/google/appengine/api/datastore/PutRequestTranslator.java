@@ -29,4 +29,8 @@ public class PutRequestTranslator {
 		return EntityTranslator.convertToPb(entity);
 	}
 
+	public static PutRequest request2bp(Transaction transaction, Iterable<Entity> entities) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

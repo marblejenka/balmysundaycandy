@@ -6,13 +6,14 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import com.google.apphosting.api.ApiBasePb.VoidProto;
+import com.google.apphosting.api.DatastorePb.DeleteResponse;
 
-public class VoidFuture implements Future<VoidProto> {
+public class DeleteResponseFuture implements Future<VoidProto> {
 
-	Future<VoidProto> protocolMessageFuture;
+	Future<DeleteResponse> protocolMessageFuture;
 
-	public VoidFuture(Future<VoidProto> protocolMessageFuture) {
-		this.protocolMessageFuture = protocolMessageFuture;
+	public DeleteResponseFuture(Future<DeleteResponse> protocolMessageFuture) {
+		this.protocolMessageFuture= protocolMessageFuture;
 	}
 
 	@Override
@@ -22,12 +23,14 @@ public class VoidFuture implements Future<VoidProto> {
 
 	@Override
 	public VoidProto get() throws InterruptedException, ExecutionException {
-		return protocolMessageFuture.get();
+		protocolMessageFuture.get();
+		return VoidProto.IMMUTABLE_DEFAULT_INSTANCE;
 	}
 
 	@Override
 	public VoidProto get(long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException {
-		return protocolMessageFuture.get(timeout, unit);
+		protocolMessageFuture.get(timeout, unit);
+		return VoidProto.IMMUTABLE_DEFAULT_INSTANCE;
 	}
 
 	@Override
