@@ -43,7 +43,8 @@ import com.google.apphosting.api.DatastorePb.BeginTransactionRequest;
 public class AsyncDatastoreServiceImpl implements AsyncDatastoreService {
 
 	/**
-	 * low level api datastore service for use transaction stack.
+	 * TODO トランザクションの取り扱いポリシーを決める
+	 * トランザクション指定なしのメソッドでトランザクションを取得するために使用。
 	 */
 	private static final DatastoreService datastoreService = DatastoreServiceFactory.getDatastoreService();
 
