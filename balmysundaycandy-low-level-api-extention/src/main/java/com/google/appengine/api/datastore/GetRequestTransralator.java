@@ -1,27 +1,29 @@
 package com.google.appengine.api.datastore;
 
-import com.google.apphosting.api.DatastorePb.GetRequest;
+import java.util.*;
+
+import com.google.apphosting.api.*;
+import com.google.apphosting.api.DatastorePb.*;
 
 // TOTO rename
 public class GetRequestTransralator {
-	
-	public static GetRequest request2pb(Transaction txn, Key... keys) {
+
+	public static GetRequest request2pb(Transaction transaction, Key... keys) {
+		return request2pb(transaction, Arrays.asList(keys));
+	}
+
+	public static GetRequest request2pb(Transaction transaction, Iterable<Key> keys) {
 		GetRequest request = new GetRequest();
 
 		for (Key key : keys) {
 			request.addKey(ReferenceTranslator.key2reference(key));
 		}
-		if (txn != null) {
-			com.google.apphosting.api.DatastorePb.Transaction transaction = new com.google.apphosting.api.DatastorePb.Transaction();
-			transaction.setHandle(Long.parseLong(txn.getId()));
-			request.setTransaction(transaction);
+		if (transaction != null) {
+			DatastorePb.Transaction remote = new DatastorePb.Transaction();
+			remote.setHandle(Long.parseLong(transaction.getId()));
+			request.setTransaction(remote);
 		}
 
 		return request;
-	}
-
-	public static GetRequest request2pb(Transaction txn, Iterable<Key> keys) {
-		// TODO 実装
-		return null;
 	}
 }

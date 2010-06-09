@@ -56,7 +56,9 @@ public class AsyncDatastoreServiceImpl implements AsyncDatastoreService {
 	public Future<Entity> get(Key key) throws EntityNotFoundException {
 		// TODO トランザクションの取り扱いポリシーを決める。パッケージを変えてllapiのスタックを使うのがいいけど、非同期にはならない
 		Transaction transaction = datastoreService.beginTransaction();
-		return get(transaction, key);
+		Future<Entity> future = get(transaction, key);
+		transaction.commit();
+		return future;
 	}
 
 	@Override
@@ -68,7 +70,9 @@ public class AsyncDatastoreServiceImpl implements AsyncDatastoreService {
 	public Future<Map<Key, Entity>> get(Iterable<Key> keys) {
 		// TODO トランザクションの取り扱いポリシーを決める。パッケージを変えてllapiのスタックを使うのがいいけど、非同期にはならない
 		Transaction transaction = datastoreService.beginTransaction();
-		return get(transaction, keys);
+		Future<Map<Key, Entity>> future = get(transaction, keys);
+		transaction.commit();
+		return future;
 	}
 
 	@Override
@@ -80,7 +84,9 @@ public class AsyncDatastoreServiceImpl implements AsyncDatastoreService {
 	public Future<Key> put(Entity entity) {
 		// TODO トランザクションの取り扱いポリシーを決める。パッケージを変えてllapiのスタックを使うのがいいけど、非同期にはならない
 		Transaction transaction = datastoreService.beginTransaction();
-		return put(transaction, entity);
+		Future<Key> future = put(transaction, entity);
+		transaction.commit();
+		return future;
 	}
 
 	@Override
@@ -92,7 +98,9 @@ public class AsyncDatastoreServiceImpl implements AsyncDatastoreService {
 	public Future<List<Key>> put(Iterable<Entity> entities) {
 		// TODO トランザクションの取り扱いポリシーを決める。パッケージを変えてllapiのスタックを使うのがいいけど、非同期にはならない
 		Transaction transaction = datastoreService.beginTransaction();
-		return put(transaction, entities);
+		Future<List<Key>> future = put(transaction, entities);
+		transaction.commit();
+		return future;
 	}
 
 	@Override
@@ -104,7 +112,9 @@ public class AsyncDatastoreServiceImpl implements AsyncDatastoreService {
 	public Future<VoidProto> delete(Key... keys) {
 		// TODO トランザクションの取り扱いポリシーを決める。パッケージを変えてllapiのスタックを使うのがいいけど、非同期にはならない
 		Transaction transaction = datastoreService.beginTransaction();
-		return delete(transaction, keys);
+		Future<VoidProto> future = delete(transaction, keys);
+		transaction.commit();
+		return future;
 	}
 
 	@Override
@@ -116,7 +126,9 @@ public class AsyncDatastoreServiceImpl implements AsyncDatastoreService {
 	public Future<VoidProto> delete(Iterable<Key> keys) {
 		// TODO トランザクションの取り扱いポリシーを決める。パッケージを変えてllapiのスタックを使うのがいいけど、非同期にはならない
 		Transaction transaction = datastoreService.beginTransaction();
-		return delete(transaction, keys);
+		Future<VoidProto> future = delete(transaction, keys);
+		transaction.commit();
+		return future;
 	}
 
 	@Override
