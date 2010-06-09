@@ -185,7 +185,7 @@ public class AsyncDatastoreServiceImpl implements AsyncDatastoreService {
 	public Future<KeyRange> allocateIds(Key parent, String kind, long num) {
 		AllocateIdsRequest request = new AllocateIdsRequest();
 		request.setSize(num);
-		request.setModelKey(ReferenceTranslator.kind2reference(kind));
+		request.setModelKey(ReferenceTranslator.path2reference(parent, kind));
 		return new KeyRangeFuture(parent, kind, DatastoreOperations.ALLOCATE_IDS.callAsync(request, apiConfig));
 	}
 }
