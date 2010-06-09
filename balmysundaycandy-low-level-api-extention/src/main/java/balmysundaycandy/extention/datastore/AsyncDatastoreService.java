@@ -49,13 +49,13 @@ public interface AsyncDatastoreService {
 
 	Future<PreparedQuery> prepare(Transaction txn, Query query);
 
-	Future<Transaction> beginTransaction();
+	AsyncTransaction beginTransaction();
 
-	Future<Transaction> getCurrentTransaction();
+	AsyncTransaction getCurrentTransaction();
 
-	Future<Transaction> getCurrentTransaction(Transaction returnedIfNoTxn);
+	AsyncTransaction getCurrentTransaction(Transaction returnedIfNoTxn);
 
-	Future<Collection<Transaction>> getActiveTransactions();
+	Collection<AsyncTransaction> getActiveTransactions();
 
 	Future<KeyRange> allocateIds(String kind, long num);
 

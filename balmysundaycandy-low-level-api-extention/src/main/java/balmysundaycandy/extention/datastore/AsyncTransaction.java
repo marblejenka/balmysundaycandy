@@ -24,7 +24,7 @@ import com.google.apphosting.api.DatastorePb.CommitResponse;
  * @author marblejenka
  * 
  */
-public class TransactionFuture implements Transaction, Future<Transaction> {
+public class AsyncTransaction implements Transaction, Future<Transaction> {
 
 	private static ApiConfig apiConfig = AsyncDatastoreServiceImpl.apiConfig;
 
@@ -41,7 +41,7 @@ public class TransactionFuture implements Transaction, Future<Transaction> {
 	// rollback response if rolled back
 	Future<VoidProto> rollbacked;
 
-	public TransactionFuture(Future<com.google.apphosting.api.DatastorePb.Transaction> transaction) {
+	public AsyncTransaction(Future<com.google.apphosting.api.DatastorePb.Transaction> transaction) {
 		this.protocolMessageFuture = transaction;
 	}
 

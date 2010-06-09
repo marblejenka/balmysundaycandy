@@ -11,7 +11,7 @@ import balmysundaycandy.extention.datastore.EntityFuture;
 import balmysundaycandy.extention.datastore.KeyFuture;
 import balmysundaycandy.extention.datastore.KeyListFuture;
 import balmysundaycandy.extention.datastore.KeyRangeFuture;
-import balmysundaycandy.extention.datastore.TransactionFuture;
+import balmysundaycandy.extention.datastore.AsyncTransaction;
 import balmysundaycandy.extention.datastore.DeleteResponseFuture;
 import balmysundaycandy.more.low.level.operations.datastore.DatastoreOperations;
 
@@ -150,26 +150,26 @@ public class AsyncDatastoreServiceImpl implements AsyncDatastoreService {
 	}
 
 	@Override
-	public Future<Transaction> beginTransaction() {
+	public AsyncTransaction beginTransaction() {
 		BeginTransactionRequest request = new BeginTransactionRequest();
 		request.setApp(ApiProxy.getCurrentEnvironment().getAppId());
-		return new TransactionFuture(DatastoreOperations.BEGIN_TRANSACTION.callAsync(request, apiConfig));
+		return new AsyncTransaction(DatastoreOperations.BEGIN_TRANSACTION.callAsync(request, apiConfig));
 	}
 
 	@Override
-	public Future<Transaction> getCurrentTransaction() {
+	public AsyncTransaction getCurrentTransaction() {
 		// TODO 実装方針を決める
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public Future<Transaction> getCurrentTransaction(Transaction returnedIfNoTxn) {
+	public AsyncTransaction getCurrentTransaction(Transaction returnedIfNoTxn) {
 		// TODO 実装方針を決める
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public Future<Collection<Transaction>> getActiveTransactions() {
+	public Collection<AsyncTransaction> getActiveTransactions() {
 		// TODO 実装方針を決める
 		throw new UnsupportedOperationException();
 	}

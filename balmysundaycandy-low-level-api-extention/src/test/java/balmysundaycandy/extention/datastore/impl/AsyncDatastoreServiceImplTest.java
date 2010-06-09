@@ -212,9 +212,8 @@ public class AsyncDatastoreServiceImplTest {
 
 	@Test
 	public void testBeginTransaction() throws InterruptedException, ExecutionException {
-		Future<Transaction> result = asyncDatastoreServiceImpl.beginTransaction();
-		Transaction transaction = result.get();
-		transaction.commit();
+		Transaction result = asyncDatastoreServiceImpl.beginTransaction();
+		result.commit();
 	}
 
 	@Test
