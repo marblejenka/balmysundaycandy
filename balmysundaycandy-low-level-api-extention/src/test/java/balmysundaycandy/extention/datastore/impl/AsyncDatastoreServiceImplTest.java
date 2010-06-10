@@ -11,28 +11,14 @@ import java.util.concurrent.*;
 
 import org.junit.*;
 
+import balmysundaycandy.core.test.*;
+
 import com.google.appengine.api.datastore.*;
-import com.google.appengine.tools.development.testing.*;
 import com.google.apphosting.api.ApiBasePb.*;
 
-public class AsyncDatastoreServiceImplTest {
-
-	DatastoreService datastoreService = DatastoreServiceFactory.getDatastoreService();
+public class AsyncDatastoreServiceImplTest extends DatastoreTestCase {
 
 	AsyncDatastoreServiceImpl asyncDatastoreServiceImpl = new AsyncDatastoreServiceImpl();
-
-	LocalServiceTestHelper helper;
-
-	@Before
-	public void setup() {
-		helper = new LocalServiceTestHelper(new LocalDatastoreServiceTestConfig());
-		helper.setUp();
-	}
-
-	@After
-	public void teardown() {
-		helper.tearDown();
-	}
 
 	public Key prepare() {
 		Entity e = new Entity(KeyFactory.createKey("test", 1));
@@ -61,7 +47,7 @@ public class AsyncDatastoreServiceImplTest {
 		Entity entity = future.get();
 
 		transaction.commit();
-		
+
 		assertThat(entity, is(not(nullValue())));
 		assertThat(entity.getKey(), is(key));
 	}
