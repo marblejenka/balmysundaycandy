@@ -172,7 +172,7 @@
 					<launchers>
 						<launcher>
 							<id>balmysundaycandy-remote-scala</id>
-							<mainClass>balmysundaycandy.scalatool.client.Main</mainClass>
+							<mainClass>balmysundaycandy.scalatool.client.BalmysundaycandyInterpreterRunner</mainClass>
 						</launcher>
 					</launchers>
 				</configuration>

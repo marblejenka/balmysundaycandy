@@ -1,7 +1,5 @@
 package balmysundaycandy.scalatool.client
 
-import org.apache.commons.httpclient.URI;
-
 import com.google.apphosting.api.ApiProxy
 
 /**

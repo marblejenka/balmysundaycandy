@@ -11,6 +11,10 @@ object BalmysundaycandyInterpreterRunner {
   val classpathargument = "-classpath"
   val classpathdelimiter = File.pathSeparator
 	
+  def main(args : Array[String]) : Unit = {
+	  run(args)
+  }
+  
   def run(args : Array[String]) {
     val out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)))
     val settings = new GenericRunnerSettings(out.println _)
