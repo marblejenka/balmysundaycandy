@@ -1,31 +1,24 @@
 package balmysundaycandy.more.low.level.operations.datastore.check;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.junit.Assert.assertThat;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
-import balmysundaycandy.core.test.EnvironmentConfiguration;
-import balmysundaycandy.core.test.TestEnvironmentUtils;
-import balmysundaycandy.more.low.level.operations.datastore.DatastoreOperations;
+import balmysundaycandy.core.test.*;
+import balmysundaycandy.more.low.level.operations.datastore.*;
 
+import com.google.appengine.api.datastore.*;
 import com.google.appengine.api.datastore.DatastoreService;
-import com.google.appengine.api.datastore.DatastoreServiceFactory;
-import com.google.appengine.api.datastore.Entity;
-import com.google.appengine.api.datastore.EntityNotFoundException;
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.KeyFactory;
-import com.google.appengine.api.datastore.KeyRange;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Transaction;
-import com.google.apphosting.api.ApiProxy;
-import com.google.apphosting.api.DatastorePb.GetRequest;
-import com.google.apphosting.api.DatastorePb.GetResponse;
-import com.google.storage.onestore.v3.OnestoreEntity.Path;
-import com.google.storage.onestore.v3.OnestoreEntity.Reference;
-import com.google.storage.onestore.v3.OnestoreEntity.Path.Element;
+import com.google.apphosting.api.*;
+import com.google.apphosting.api.DatastorePb.*;
+import com.google.storage.onestore.v3.OnestoreEntity.*;
+import com.google.storage.onestore.v3.OnestoreEntity.Path.*;
 
 /**
  * #ajn3 datastore futeure check. original source is written by @shin1ogawa.
@@ -33,18 +26,7 @@ import com.google.storage.onestore.v3.OnestoreEntity.Path.Element;
  * @author marblejenka
  * 
  */
-public class Ajn3AppengineDatastoreFutureCheck {
-	EnvironmentConfiguration environmentConfiguration = new EnvironmentConfiguration("", false, true);
-
-	@Before
-	public void setup() {
-		TestEnvironmentUtils.setupEnvironment(environmentConfiguration);
-	}
-
-	@After
-	public void teardown() {
-		TestEnvironmentUtils.teardownEnvironment(environmentConfiguration);
-	}
+public class Ajn3AppengineDatastoreFutureCheck extends DatastoreTestCase {
 
 	public GetRequest createGetRequest(Long id, String kind) {
 		GetRequest getRequest = new GetRequest();
@@ -79,7 +61,7 @@ public class Ajn3AppengineDatastoreFutureCheck {
 		service.put(parent);
 		service.put(child);
 
-		// more low level‚É‚æ‚éget
+		// more low levelï¿½É‚ï¿½ï¿½get
 		GetRequest request = createGetRequest(1L, "child");
 		GetResponse response = DatastoreOperations.GET.call(request);
 
@@ -112,7 +94,7 @@ public class Ajn3AppengineDatastoreFutureCheck {
 		service.put(tx, child2);
 		tx.commit();
 
-		// more low level‚É‚æ‚éget
+		// more low levelï¿½É‚ï¿½ï¿½get
 		GetRequest request = createGetRequest(1L, "child");
 		GetResponse response = DatastoreOperations.GET.call(request);
 
@@ -143,7 +125,7 @@ public class Ajn3AppengineDatastoreFutureCheck {
 		service.put(tx, child2);
 		tx.commit();
 
-		// more low level‚É‚æ‚éget
+		// more low levelï¿½É‚ï¿½ï¿½get
 		GetRequest request = createGetRequest(1L, "child");
 		GetResponse response = DatastoreOperations.GET.call(request);
 

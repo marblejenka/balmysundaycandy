@@ -1,36 +1,24 @@
 package balmysundaycandy.more.low.level.operations.datastore.impl;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
-import balmysundaycandy.core.test.EnvironmentConfiguration;
-import balmysundaycandy.core.test.TestEnvironmentUtils;
-import balmysundaycandy.more.low.level.operations.datastore.DatastoreOperations;
+import balmysundaycandy.core.test.*;
+import balmysundaycandy.more.low.level.operations.datastore.*;
 
-import com.google.apphosting.api.ApiProxy;
-import com.google.apphosting.api.ApiBasePb.Integer64Proto;
-import com.google.apphosting.api.ApiProxy.ApiConfig;
-import com.google.storage.onestore.v3.OnestoreEntity.CompositeIndex;
+import com.google.apphosting.api.*;
+import com.google.apphosting.api.ApiBasePb.*;
+import com.google.apphosting.api.ApiProxy.*;
+import com.google.storage.onestore.v3.OnestoreEntity.*;
 
-public class CreateIndexOperationTest {
-	EnvironmentConfiguration environmentConfiguration = new EnvironmentConfiguration("", false, true);
-
-	@Before
-	public void setup() {
-		TestEnvironmentUtils.setupEnvironment(environmentConfiguration);
-	}
-
-	@After
-	public void teardown() {
-		TestEnvironmentUtils.teardownEnvironment(environmentConfiguration);
-	}
+public class CreateIndexOperationTest extends DatastoreTestCase {
 
 	@SuppressWarnings("deprecation")
 	@Test(expected = UnsupportedOperationException.class)
@@ -45,7 +33,9 @@ public class CreateIndexOperationTest {
 	}
 
 	@SuppressWarnings("deprecation")
-	@Test(expected = ExecutionException.class) // cause execution exception, because of unsupported operation exception thrown in future.get method.
+	@Test(expected = ExecutionException.class)
+	// cause execution exception, because of unsupported operation exception
+	// thrown in future.get method.
 	public void testCallAsyncCompositeIndexApiConfig() throws InterruptedException, ExecutionException {
 		CompositeIndex request = new CompositeIndex();
 		request.setAppId(ApiProxy.getCurrentEnvironment().getAppId());

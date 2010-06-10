@@ -1,33 +1,18 @@
 package balmysundaycandy.more.low.level.operations.image.impl;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.*;
 
-import balmysundaycandy.core.test.EnvironmentConfiguration;
-import balmysundaycandy.core.test.TestEnvironmentUtils;
-import balmysundaycandy.more.low.level.operations.image.ImgaeOperations;
+import balmysundaycandy.more.low.level.operations.image.*;
 
-import com.google.appengine.api.images.ImagesServicePb.ImageData;
-import com.google.appengine.api.images.ImagesServicePb.ImagesCompositeRequest;
-import com.google.appengine.api.images.ImagesServicePb.ImagesCompositeResponse;
+import com.google.appengine.api.images.ImagesServicePb.*;
 
 public class CompositeOperationTest {
-	EnvironmentConfiguration environmentConfiguration = new EnvironmentConfiguration("", false, true);
-
-	@Before
-	public void setup() {
-		TestEnvironmentUtils.setupEnvironment(environmentConfiguration);
-	}
-
-	@After
-	public void teardown() {
-		TestEnvironmentUtils.teardownEnvironment(environmentConfiguration);
-	}
 
 	@Test
 	@Ignore

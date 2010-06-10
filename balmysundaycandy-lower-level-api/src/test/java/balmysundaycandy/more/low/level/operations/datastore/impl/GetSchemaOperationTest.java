@@ -1,48 +1,33 @@
 package balmysundaycandy.more.low.level.operations.datastore.impl;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.junit.Assert.assertThat;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
+import java.util.*;
+import java.util.concurrent.*;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
-import balmysundaycandy.core.test.EnvironmentConfiguration;
-import balmysundaycandy.core.test.TestEnvironmentUtils;
-import balmysundaycandy.more.low.level.operations.datastore.DatastoreOperations;
+import balmysundaycandy.core.test.*;
+import balmysundaycandy.more.low.level.operations.datastore.*;
 
-import com.google.apphosting.api.ApiProxy;
-import com.google.apphosting.api.ApiProxy.ApiConfig;
-import com.google.apphosting.api.DatastorePb.GetSchemaRequest;
-import com.google.apphosting.api.DatastorePb.Schema;
-import com.google.storage.onestore.v3.OnestoreEntity.EntityProto;
-import com.google.storage.onestore.v3.OnestoreEntity.Path.Element;
+import com.google.apphosting.api.*;
+import com.google.apphosting.api.ApiProxy.*;
+import com.google.apphosting.api.DatastorePb.*;
+import com.google.storage.onestore.v3.OnestoreEntity.*;
+import com.google.storage.onestore.v3.OnestoreEntity.Path.*;
 
-public class GetSchemaOperationTest {
-	EnvironmentConfiguration environmentConfiguration = new EnvironmentConfiguration("", false, true);
-
-	@Before
-	public void setup() {
-		TestEnvironmentUtils.setupEnvironment(environmentConfiguration);
-	}
-
-	@After
-	public void teardown() {
-		TestEnvironmentUtils.teardownEnvironment(environmentConfiguration);
-	}
+public class GetSchemaOperationTest extends DatastoreTestCase {
 
 	@Test
 	public void testCallGetSchemaRequest() {
 		GetSchemaRequest request = new GetSchemaRequest();
 		request.setApp(ApiProxy.getCurrentEnvironment().getAppId());
-		
+
 		Schema schema = DatastoreOperations.GET_SCHEMA.call(request);
-		
+
 		assertThat(schema, is(not(nullValue())));
 	}
 
@@ -50,19 +35,19 @@ public class GetSchemaOperationTest {
 	public void testCallAsyncGetSchemaRequestApiConfig() throws InterruptedException, ExecutionException {
 		GetSchemaRequest request = new GetSchemaRequest();
 		request.setApp(ApiProxy.getCurrentEnvironment().getAppId());
-		
+
 		Future<Schema> schema = DatastoreOperations.GET_SCHEMA.callAsync(request, new ApiConfig());
-		
+
 		assertThat(schema, is(not(nullValue())));
 		assertThat(schema.get(), is(not(nullValue())));
 	}
-	
+
 	public void testCallGetSchemaRequest_() {
 		GetSchemaRequest request = new GetSchemaRequest();
 		request.setApp(ApiProxy.getCurrentEnvironment().getAppId());
-		
+
 		Schema schema = DatastoreOperations.GET_SCHEMA.call(request);
-		
+
 		List<EntityProto> entityProtoList = schema.kinds();
 		List<String> kindList = new ArrayList<String>(entityProtoList.size());
 		for (EntityProto entityProto : entityProtoList) {

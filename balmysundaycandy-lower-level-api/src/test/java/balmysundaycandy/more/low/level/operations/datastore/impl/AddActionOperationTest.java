@@ -5,32 +5,17 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
-import balmysundaycandy.core.test.EnvironmentConfiguration;
-import balmysundaycandy.core.test.TestEnvironmentUtils;
-import balmysundaycandy.more.low.level.operations.datastore.DatastoreOperations;
+import balmysundaycandy.core.test.*;
+import balmysundaycandy.more.low.level.operations.datastore.*;
 
-import com.google.apphosting.api.ApiProxy.ApiConfig;
-import com.google.apphosting.api.DatastorePb.AddActionsRequest;
-import com.google.apphosting.api.DatastorePb.AddActionsResponse;
+import com.google.apphosting.api.ApiProxy.*;
+import com.google.apphosting.api.DatastorePb.*;
 
-public class AddActionOperationTest {
-	EnvironmentConfiguration environmentConfiguration = new EnvironmentConfiguration("", false, true);
-
-	@Before
-	public void setup() {
-		TestEnvironmentUtils.setupEnvironment(environmentConfiguration);
-	}
-
-	@After
-	public void teardown() {
-		TestEnvironmentUtils.teardownEnvironment(environmentConfiguration);
-	}
+public class AddActionOperationTest extends DatastoreTestCase {
 
 	@Test(expected = NoClassDefFoundError.class)
 	public void testCallActionRequest() {

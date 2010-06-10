@@ -1,37 +1,22 @@
 package balmysundaycandy.more.low.level.operations.datastore.impl;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.junit.Assert.assertThat;
 
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
-import balmysundaycandy.core.test.EnvironmentConfiguration;
-import balmysundaycandy.core.test.TestEnvironmentUtils;
-import balmysundaycandy.more.low.level.operations.datastore.DatastoreOperations;
+import balmysundaycandy.core.test.*;
+import balmysundaycandy.more.low.level.operations.datastore.*;
 
-import com.google.apphosting.api.ApiProxy;
-import com.google.apphosting.api.ApiProxy.ApiConfig;
-import com.google.apphosting.api.ApiProxy.CallNotFoundException;
-import com.google.apphosting.api.DatastorePb.QueryResult;
-import com.google.apphosting.api.DatastorePb.RunCompiledQueryRequest;
+import com.google.apphosting.api.*;
+import com.google.apphosting.api.ApiProxy.*;
+import com.google.apphosting.api.DatastorePb.*;
 
-public class RunCompiledQueryOperationTest {
-	EnvironmentConfiguration environmentConfiguration = new EnvironmentConfiguration("", false, true);
-
-	@Before
-	public void setup() {
-		TestEnvironmentUtils.setupEnvironment(environmentConfiguration);
-	}
-
-	@After
-	public void teardown() {
-		TestEnvironmentUtils.teardownEnvironment(environmentConfiguration);
-	}
+public class RunCompiledQueryOperationTest extends DatastoreTestCase {
 
 	@Test(expected = CallNotFoundException.class)
 	public void testCallRunCompiledQueryRequest() {

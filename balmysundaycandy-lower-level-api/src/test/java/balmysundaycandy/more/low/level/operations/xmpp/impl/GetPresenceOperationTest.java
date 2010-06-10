@@ -1,37 +1,22 @@
 package balmysundaycandy.more.low.level.operations.xmpp.impl;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.junit.Assert.assertThat;
 
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
-import balmysundaycandy.core.test.EnvironmentConfiguration;
-import balmysundaycandy.core.test.TestEnvironmentUtils;
-import balmysundaycandy.more.low.level.operations.xmpp.XmppOperations;
+import balmysundaycandy.core.test.*;
+import balmysundaycandy.more.low.level.operations.xmpp.*;
 
-import com.google.appengine.api.xmpp.XMPPServicePb.PresenceRequest;
-import com.google.appengine.api.xmpp.XMPPServicePb.PresenceResponse;
-import com.google.apphosting.api.ApiProxy;
-import com.google.apphosting.api.ApiProxy.ApiConfig;
+import com.google.appengine.api.xmpp.XMPPServicePb.*;
+import com.google.apphosting.api.*;
+import com.google.apphosting.api.ApiProxy.*;
 
-public class GetPresenceOperationTest {
-	EnvironmentConfiguration environmentConfiguration = new EnvironmentConfiguration("", false, true);
-
-	@Before
-	public void setup() {
-		TestEnvironmentUtils.setupEnvironment(environmentConfiguration);
-	}
-
-	@After
-	public void teardown() {
-		TestEnvironmentUtils.teardownEnvironment(environmentConfiguration);
-	}
-
+public class GetPresenceOperationTest extends XmppTestCase {
 	@Test
 	public void testCallPresenceRequest() {
 		PresenceRequest request = new PresenceRequest();
@@ -39,7 +24,7 @@ public class GetPresenceOperationTest {
 			request.setJid(ApiProxy.getCurrentEnvironment().getEmail());
 			request.setFromJid(ApiProxy.getCurrentEnvironment().getEmail());
 		}
-		
+
 		PresenceResponse response = XmppOperations.GET_PRESENCE.call(request);
 
 		assertThat(response, is(not(nullValue())));
@@ -52,7 +37,7 @@ public class GetPresenceOperationTest {
 			request.setJid(ApiProxy.getCurrentEnvironment().getEmail());
 			request.setFromJid(ApiProxy.getCurrentEnvironment().getEmail());
 		}
-		
+
 		Future<PresenceResponse> response = XmppOperations.GET_PRESENCE.callAsync(request, new ApiConfig());
 
 		assertThat(response, is(not(nullValue())));

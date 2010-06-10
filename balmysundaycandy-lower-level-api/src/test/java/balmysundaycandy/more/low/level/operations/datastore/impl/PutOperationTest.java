@@ -1,44 +1,26 @@
 package balmysundaycandy.more.low.level.operations.datastore.impl;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.junit.Assert.assertThat;
 
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
-import balmysundaycandy.core.test.EnvironmentConfiguration;
-import balmysundaycandy.core.test.TestEnvironmentUtils;
-import balmysundaycandy.more.low.level.operations.datastore.DatastoreOperations;
+import balmysundaycandy.core.test.*;
+import balmysundaycandy.more.low.level.operations.datastore.*;
 
-import com.google.apphosting.api.ApiProxy;
-import com.google.apphosting.api.ApiProxy.ApiConfig;
-import com.google.apphosting.api.DatastorePb.PutRequest;
-import com.google.apphosting.api.DatastorePb.PutResponse;
-import com.google.storage.onestore.v3.OnestoreEntity.EntityProto;
-import com.google.storage.onestore.v3.OnestoreEntity.Path;
-import com.google.storage.onestore.v3.OnestoreEntity.Property;
-import com.google.storage.onestore.v3.OnestoreEntity.PropertyValue;
-import com.google.storage.onestore.v3.OnestoreEntity.Reference;
-import com.google.storage.onestore.v3.OnestoreEntity.Path.Element;
+import com.google.apphosting.api.*;
+import com.google.apphosting.api.ApiProxy.*;
+import com.google.apphosting.api.DatastorePb.*;
+import com.google.storage.onestore.v3.OnestoreEntity.*;
+import com.google.storage.onestore.v3.OnestoreEntity.Path.*;
 
-public class PutOperationTest {
-	EnvironmentConfiguration environmentConfiguration = new EnvironmentConfiguration("", false, true);
+public class PutOperationTest extends DatastoreTestCase {
 
-	@Before
-	public void setup() {
-		TestEnvironmentUtils.setupEnvironment(environmentConfiguration);
-	}
-
-	@After
-	public void teardown() {
-		TestEnvironmentUtils.teardownEnvironment(environmentConfiguration);
-	}
-	
-	private PutRequest buildPutRequest(){
+	private PutRequest buildPutRequest() {
 		PutRequest request = new PutRequest();
 
 		Element element = new Element();
@@ -52,7 +34,7 @@ public class PutOperationTest {
 		Reference reference = new Reference();
 		reference.setApp(ApiProxy.getCurrentEnvironment().getAppId());
 		reference.setPath(path);
-		
+
 		EntityProto entityProto = new EntityProto();
 		Property property = new Property();
 		property.setName("name");
@@ -63,26 +45,25 @@ public class PutOperationTest {
 		entityProto.setKey(reference);
 
 		request.addEntity(entityProto);
-		
+
 		return request;
 	}
-	
 
 	@Test
 	public void testCallPutRequest() {
 		PutRequest request = buildPutRequest();
-		
+
 		PutResponse response = DatastoreOperations.PUT.call(request);
-		
+
 		assertThat(response, is(not(nullValue())));
 	}
 
 	@Test
 	public void testCallAsyncPutRequestApiConfig() throws InterruptedException, ExecutionException {
 		PutRequest request = buildPutRequest();
-		
+
 		Future<PutResponse> response = DatastoreOperations.PUT.callAsync(request, new ApiConfig());
-		
+
 		assertThat(response, is(not(nullValue())));
 		assertThat(response.get(), is(not(nullValue())));
 	}

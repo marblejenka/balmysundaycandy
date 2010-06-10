@@ -1,38 +1,23 @@
 package balmysundaycandy.more.low.level.operations.taskqueue.impl;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.junit.Assert.assertThat;
 
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
-import balmysundaycandy.core.test.EnvironmentConfiguration;
-import balmysundaycandy.core.test.TestEnvironmentUtils;
-import balmysundaycandy.more.low.level.operations.taskqueue.TaskqueueOperations;
+import balmysundaycandy.core.test.*;
+import balmysundaycandy.more.low.level.operations.taskqueue.*;
 
-import com.google.appengine.api.labs.taskqueue.Queue;
-import com.google.appengine.api.labs.taskqueue.TaskQueuePb.TaskQueueFetchQueueStatsRequest;
-import com.google.appengine.api.labs.taskqueue.TaskQueuePb.TaskQueueFetchQueueStatsResponse;
-import com.google.apphosting.api.ApiProxy;
-import com.google.apphosting.api.ApiProxy.ApiConfig;
-import com.google.apphosting.api.ApiProxy.CallNotFoundException;
+import com.google.appengine.api.labs.taskqueue.*;
+import com.google.appengine.api.labs.taskqueue.TaskQueuePb.*;
+import com.google.apphosting.api.*;
+import com.google.apphosting.api.ApiProxy.*;
 
-public class FetchQueueStatsOperationTest {
-	EnvironmentConfiguration environmentConfiguration = new EnvironmentConfiguration("", false, true);
-
-	@Before
-	public void setup() {
-		TestEnvironmentUtils.setupEnvironment(environmentConfiguration);
-	}
-
-	@After
-	public void teardown() {
-		TestEnvironmentUtils.teardownEnvironment(environmentConfiguration);
-	}
+public class FetchQueueStatsOperationTest extends TaskqueueTestCase {
 
 	@SuppressWarnings("deprecation")
 	@Test(expected = CallNotFoundException.class)
