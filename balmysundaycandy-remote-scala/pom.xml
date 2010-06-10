@@ -2,13 +2,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>marblejenka</groupId>
-	<artifactId>balmysundaycandy-marble-broker</artifactId>
+	<artifactId>balmysundaycandy-remote-scala</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>balmysundaycandy-lower-marble-broker</name>
+	<name>balmysundaycandy-remote-scala</name>
 	<url></url>
-	
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<appengine.version>1.3.4</appengine.version>
@@ -60,25 +60,25 @@
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-api-1.0-sdk</artifactId>
 			<version>${appengine.version}</version>
-			<scope>test</scope>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-api-labs</artifactId>
 			<version>${appengine.version}</version>
-			<scope>test</scope>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-api-stubs</artifactId>
 			<version>${appengine.version}</version>
-			<scope>test</scope>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-local-runtime</artifactId>
 			<version>${appengine.version}</version>
-			<scope>test</scope>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.google.appengine</groupId>
@@ -91,18 +91,19 @@
 			<groupId>org.scala-lang</groupId>
 			<artifactId>scala-compiler</artifactId>
 			<version>${scala.version}</version>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.scala-lang</groupId>
 			<artifactId>scala-library</artifactId>
 			<version>${scala.version}</version>
+			<scope>compile</scope>
 		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.4</version>
-			<scope>test</scope>
-		</dependency>
+
+		<!--
+			<dependency> <groupId>junit</groupId> <artifactId>junit</artifactId>
+			<version>4.4</version> <scope>test</scope> </dependency>
+		-->
 		<dependency>
 			<groupId>org.specs</groupId>
 			<artifactId>specs</artifactId>
@@ -114,6 +115,7 @@
 			<groupId>marblejenka</groupId>
 			<artifactId>balmysundaycandy-remote</artifactId>
 			<version>${balmysundaycandy.version}</version>
+			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 
@@ -167,6 +169,12 @@
 				<artifactId>maven-scala-plugin</artifactId>
 				<configuration>
 					<scalaVersion>${scala.version}</scalaVersion>
+					<launchers>
+						<launcher>
+							<id>balmysundaycandy-remote-scala</id>
+							<mainClass>balmysundaycandy.scalatool.client.Main</mainClass>
+						</launcher>
+					</launchers>
 				</configuration>
 			</plugin>
 		</plugins>
