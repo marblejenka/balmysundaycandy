@@ -4,3 +4,30 @@ balmysundaycandy-lower-level-api/
 balmysundaycandy-marble-broker/
 balmysundaycandy-remote/
 balmysundaycandy-remote-scala/
+
+-- initial script
+cd balmysundaycandy-core
+mvn -Dmaven.test.skip=true clean install
+cd ..
+
+
+cd balmysundaycandy-lower-level-api
+mvn -Dmaven.test.skip=true clean install
+cd ..
+
+cd balmysundaycandy-low-level-api-extention
+mvn -Dmaven.test.skip=true clean install
+cd ..
+
+cd balmysundaycandy-marble-broker
+mvn -Dmaven.test.skip=true clean install
+cd ..
+
+cd balmysundaycandy-remote
+mvn -Dmaven.test.skip=true clean install
+cd ..
+
+cd balmysundaycandy-remote-scala
+mvn -Dmaven.test.skip=true clean install
+cd ..
+
