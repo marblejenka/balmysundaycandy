@@ -21,12 +21,14 @@ public class AsyncDatastoreServiceImplTest extends DatastoreTestCase {
 	AsyncDatastoreServiceImpl asyncDatastoreServiceImpl = new AsyncDatastoreServiceImpl();
 
 	public Key prepare() {
+		Transaction transaction = datastoreService.beginTransaction();
 		Entity e = new Entity(KeyFactory.createKey("test", 1));
-		Key key = datastoreService.put(e);
+		Key key = datastoreService.put(transaction, e);
+		transaction.commit();
 
 		return key;
 	}
-
+	
 	@Test
 	public void testGetKey() throws EntityNotFoundException, InterruptedException, ExecutionException {
 		Key key = prepare();
@@ -142,6 +144,7 @@ public class AsyncDatastoreServiceImplTest extends DatastoreTestCase {
 
 		Future<VoidProto> future = asyncDatastoreServiceImpl.delete(key);
 		VoidProto result = future.get();
+		asyncDatastoreServiceImpl.realizeAll();
 
 		assertThat(result, is(not(nullValue())));
 
@@ -172,6 +175,7 @@ public class AsyncDatastoreServiceImplTest extends DatastoreTestCase {
 
 		Future<VoidProto> future = asyncDatastoreServiceImpl.delete(list);
 		VoidProto result = future.get();
+		asyncDatastoreServiceImpl.realizeAll();
 
 		assertThat(result, is(not(nullValue())));
 

@@ -53,7 +53,7 @@ public interface AsyncDatastoreService {
 
 	AsyncTransaction getCurrentTransaction();
 
-	AsyncTransaction getCurrentTransaction(Transaction returnedIfNoTxn);
+	AsyncTransaction getCurrentTransaction(AsyncTransaction returnedIfNoTxn);
 
 	Collection<AsyncTransaction> getActiveTransactions();
 
