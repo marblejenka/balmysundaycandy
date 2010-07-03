@@ -46,13 +46,13 @@ public class AsyncDatastoreServiceImpl implements AsyncDatastoreService {
 	 * unrealized operations.
 	 * @see realizeAll
 	 */
-	private static final Stack<Future<?>> futures = new Stack<Future<?>>();
+	private final Stack<Future<?>> futures = new Stack<Future<?>>();
 
 	/**
 	 * uncommited operations.
 	 * @see realizeAll
 	 */
-	private static final Stack<AsyncTransaction> transactions = new Stack<AsyncTransaction>();
+	private final Stack<AsyncTransaction> transactions = new Stack<AsyncTransaction>();
 	
 
 	public static final ApiConfig apiConfig = new ApiConfig();
